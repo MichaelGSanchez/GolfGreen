@@ -17,7 +17,7 @@ golf course difficulty, and layout of the course. You will be able
 to search using your location, or search for courses in a city or town 
 that you may be traveling to. 
 
-[wirefram placeholder link](https://giphy.com/gifs/breaking-bad-money-comfortable-X8omQqfFyeq1a)
+[Wireframe of App](https://drive.google.com/open?id=1K9W7Mv8-_9f87j06k8jskFZvWIplORAv)
 
 **Who would find this app useful or fun, and when would they use it?**
 
