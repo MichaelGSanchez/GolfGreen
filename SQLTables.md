@@ -12,7 +12,7 @@ and of course the number of courses.  **See table 1.1** for an example.
 **Table 1.1**
 
 The second table will need to then pull the course names, price, booking info, and difficulty based on the location of
-the course's city.  See *table 1.2** for an example.
+the course's city.  See **table 1.2** for an example.
 
 | Course Names  |     Price     | Booking Info |  Difficulty |
 | :-----------: |:-------------:| :-----------:| :----------:|
