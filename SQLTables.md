@@ -1,8 +1,9 @@
-#Tables Needed For GOlf Green
+# Tables Needed For GOlf Green
 
 Given that each player user will need to search a location, followed by the actual course it self, I do feel that
 a minimum of two tables will be required.  In the first table it will outline the city you are searching in, the number of courses
 and of course the number of courses.  **See table 1.1** for an example.
+
 | City Names    | City Location | Num of Course|
 | :-----------: |:-------------:| :-----------:|
 | Albuquerque   | Coordinates   |       8      |
