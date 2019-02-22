@@ -5,6 +5,10 @@
 
   <group android:checkableBehavior="single">
     <item
+      android:id="@+id/home"
+      android:icon="@drawable/ic_home_black_24dp"
+      android:title="Home"/>
+    <item
       android:id="@+id/favorite_courses"
       android:icon="@drawable/ic_golf_course_black_24dp"
       android:title="Favorite Courses"/>
