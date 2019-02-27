@@ -23,11 +23,11 @@
     app:headerLayout="@layout/nav_header_main"
     app:menu="@menu/activity_main_drawer"/>
 
-  // android.support.v7.widget.Toolbar
-  //  android:id="@+id/search"
-  //  android:layout_width="match_parent"
-  //  android:layout_height="?attr/actionBarSize"
-  // android:background="@color/colorPrimary"/>
+ <!--  android.support.v7.widget.Toolbar
+    android:id="@+id/search"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"/>-->
 
 
 

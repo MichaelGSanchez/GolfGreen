@@ -5,21 +5,18 @@
 
   <group android:checkableBehavior="single">
     <item
-      android:id="@+id/home"
+      android:id="@+id/fragment_home"
       android:icon="@drawable/ic_home_black_24dp"
       android:title="Home"/>
     <item
-      android:id="@+id/favorite_courses"
+      android:id="@+id/fragment_courses_favorite"
       android:icon="@drawable/ic_golf_course_black_24dp"
       android:title="Favorite Courses"/>
     <item
-      android:id="@+id/preferred_difficulty"
-      android:icon="@drawable/ic_compare_arrows_black_24dp"
-      android:title="Preferred Difficulty"/>
-    <item
-      android:id="@+id/preferred_price"
-      android:icon="@drawable/ic_attach_money_black_24dp"
-      android:title="Preferred Price"/>
+      android:id="@+id/course_preferences"
+      android:icon="@drawable/ic_tune_black_24dp"
+      android:title="Course Preferences"/>
+
     <item
       android:id="@+id/profile_settings"
       android:icon="@drawable/ic_menu_manage"
