@@ -17,7 +17,9 @@ golf course difficulty, and layout of the course. You will be able
 to search using your location, or search for courses in a city or town 
 that you may be traveling to. 
 
-[Wireframe of App](https://drive.google.com/open?id=1K9W7Mv8-_9f87j06k8jskFZvWIplORAv)
+* [Wireframe of App](https://drive.google.com/open?id=1K9W7Mv8-_9f87j06k8jskFZvWIplORAv)
+* [ERD of GolfGreen](https://www.lucidchart.com/invitations/accept/48a9b553-c558-4405-ae7a-de8aa7898f40)
+* [SQL Table's](SQLTables.md)
 
 **Who would find this app useful or fun, and when would they use it?**
 
