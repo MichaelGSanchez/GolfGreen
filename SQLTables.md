@@ -21,3 +21,6 @@ the course's city.  See **table 1.2** for an example.
 | UNM South     | $65           | phone number |    8/10     |
 **Table 1.2**
 
+## Entity Relationship Diagram
+
+[Link To Lucidchart](https://www.lucidchart.com/invitations/accept/48a9b553-c558-4405-ae7a-de8aa7898f40)
