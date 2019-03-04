@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.golfgreen;
+package edu.cnm.deepdive.golfgreen.controller;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import edu.cnm.deepdive.golfgreen.R;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.golfgreen;
+package edu.cnm.deepdive.golfgreen.controller;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import edu.cnm.deepdive.golfgreen.R;
 
 
 public class CourseFavorite extends Fragment {

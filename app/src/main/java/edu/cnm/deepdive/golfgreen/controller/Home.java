@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.golfgreen;
+package edu.cnm.deepdive.golfgreen.controller;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import edu.cnm.deepdive.golfgreen.R;
 
 
 public class Home extends Fragment {
