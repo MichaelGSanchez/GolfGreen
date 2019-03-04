@@ -4,15 +4,16 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="#020202"
-  tools:context=".courseFavorite">
+  tools:context=".CourseFavorite">
 
   <!-- TODO: Update blank fragment layout -->
+
   <TextView
     android:id="@+id/body_text"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:textColor="@color/colorPrimary"
     android:textSize="36sp"
-    android:text="'Merica"/>
+    android:text="Course Fav Fragment"/>
 
 </FrameLayout>

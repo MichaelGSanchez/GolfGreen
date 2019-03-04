@@ -3,17 +3,16 @@ package edu.cnm.deepdive.golfgreen;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class courseFavorite extends Fragment {
+public class CourseFavorite extends Fragment {
 
-  private static final String BODY_TEXT_KEY = "body_text";
-
+  public static final String BODY_TEXT_KEY = "body_text";
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -22,13 +21,12 @@ public class courseFavorite extends Fragment {
     Bundle args = getArguments();
     if (args != null){
       String body = args.getString(BODY_TEXT_KEY);
-        if(body != null){
-          TextView bodyText = getView().findViewById(R.id.body_text);
-          bodyText.setText(body);
-        }
+      if(body != null){
+        TextView bodyText = view.findViewById(R.id.body_text);
+        bodyText.setText(body);
+      }
     }
     return view;
   }
-
 
 }

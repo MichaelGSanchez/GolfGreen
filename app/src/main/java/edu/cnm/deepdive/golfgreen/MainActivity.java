@@ -1,13 +1,9 @@
 package edu.cnm.deepdive.golfgreen;
 
-import android.net.wifi.hotspot2.pps.HomeSp;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,21 +15,13 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
-
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-    fab.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show();
-      }
-    });
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -43,7 +31,17 @@ public class MainActivity extends AppCompatActivity
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
+
+/*
+    FragmentManager fragmentManager = this.getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+    fragmentTransaction.replace(R.id.nav_view);
+    fragmentTransaction.add(R.id.fragment_containe
+    fragmentTransaction.commit();
+*/
+
   }
+
 
   @Override
   public void onBackPressed() {
@@ -81,12 +79,18 @@ public class MainActivity extends AppCompatActivity
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
     Bundle args = new Bundle();
-    switch (item.getItemId()){
-      case  R.id.fragment_home:
-        loadFragment(new Fragment(), R.id.fragment_container, "Home", null);
+    switch (item.getItemId()) {
+      case R.id.fragment_home:
+        loadFragment(new Home(), R.id.fragment_container, "fragment_home", null);
         break;
-      case R.id.fragment_courses_favorite:
-        loadFragment(new Fragment(), R.id.fragment_container, "courseFavorite", null);
+      case R.id.fragment_course_favorite:
+        loadFragment(new CourseFavorite(), R.id.fragment_container, "fragment_course_favorite",
+            null);
+        break;
+      case R.id.fragment_profile_settings:
+        args.putString(CourseFavorite.BODY_TEXT_KEY, "Profile Settings Frag.");
+        loadFragment(new CourseFavorite(), R.id.fragment_container, "fragment_profile_settings",
+            args);
         break;
 
     }
@@ -96,9 +100,9 @@ public class MainActivity extends AppCompatActivity
     return true;
   }
 
-  public void loadFragment (Fragment fragment, int container, String tag, Bundle args){
+  public void loadFragment(Fragment fragment, int container, String tag, Bundle args) {
     FragmentManager manager = getSupportFragmentManager();
-    if(args != null){
+    if (args != null) {
       fragment.setArguments(args);
     }
     manager.beginTransaction()
