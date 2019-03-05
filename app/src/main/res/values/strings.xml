@@ -5,11 +5,14 @@
   <string name="nav_header_title">Android Studio</string>
   <string name="nav_header_subtitle">android.studio@android.com</string>
   <string name="nav_header_desc">Navigation header</string>
-  <string name="filter_by">Filter By...</string>
+  <string name="filter_by">Filter By…</string>
 
 
   <!-- TODO: Remove or change this placeholder text -->
-  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="welcome">Welcome To Golf Green</string>
+  <string name="sub_welcome">Saving You Green Before You Hit The Green</string>
+  <string name="search_prompt">Search Location To Begin</string>
+  <string name="tee_box">Tee Box:</string>
   <string name="nav_user_name">User Name</string>
   <string name="nav_user_name_subheading">User Email</string>
   <string name="search_title">Search</string>
