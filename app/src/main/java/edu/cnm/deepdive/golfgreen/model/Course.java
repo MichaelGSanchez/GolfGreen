@@ -9,9 +9,13 @@ import android.arch.persistence.room.PrimaryKey;
 )
 
 public class Course {
+
   @ColumnInfo(name = "course_id")
   @PrimaryKey(autoGenerate = true)
   private long id;
+
+  @ColumnInfo (name = "course_name")
+  private String courseName;
 
   @ColumnInfo(name = "price")
   private int price;
@@ -25,6 +29,14 @@ public class Course {
   @ColumnInfo(name = "phone_number")
   private long phoneNumber;
 
+
+  public String getCourseName() {
+    return courseName;
+  }
+
+  public void setCourseName(String courseName) {
+    this.courseName = courseName;
+  }
 
   public long getId() {
     return id;
