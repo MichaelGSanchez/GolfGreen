@@ -5,16 +5,14 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = CourseLocation.class,
-    parentColumns = "course_id", childColumns = "course_id",
-    onDelete = ForeignKey.CASCADE)
+@Entity(
 )
 
 public class Course {
-  @ColumnInfo(name = "courses_id")
+  @ColumnInfo(name = "course_id")
   @PrimaryKey(autoGenerate = true)
   private long id;
-  private Long courseId;
+  private long courseId;
   private int difficulty;
   private String url;
   private long phoneNumber;

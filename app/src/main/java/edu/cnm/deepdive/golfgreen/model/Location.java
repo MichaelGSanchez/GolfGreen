@@ -7,8 +7,8 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import java.util.Date;
 
-@Entity(foreignKeys = @ForeignKey(entity = CourseLocation.class,
-    parentColumns = "location_id", childColumns = "location_id",
+@Entity(foreignKeys = @ForeignKey(entity = User.class,
+    parentColumns = "user_id", childColumns = "user_id",
     onDelete = ForeignKey.CASCADE)
 )
 
@@ -27,13 +27,16 @@ public class Location {
   private int maxRadius;
   private Date timeStamp;
 
+  @ColumnInfo(name = "user_id")
+  private long userId;
+
   public long getId(){
     return id;
   }
+
   public void setId(long id) {
     this.id = id;
   }
-
   public Long getLatitude(){
     return latitude;
   }
@@ -80,6 +83,14 @@ public class Location {
 
   public void setTimeStamp(Date timeStamp) {
     this.timeStamp = timeStamp;
+  }
+
+  public long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(long userId) {
+    this.userId = userId;
   }
 
 

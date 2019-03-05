@@ -7,6 +7,7 @@ import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.golfgreen.model.Course;
 import edu.cnm.deepdive.golfgreen.model.CourseLocation;
 import edu.cnm.deepdive.golfgreen.model.Location;
+import edu.cnm.deepdive.golfgreen.model.User;
 import java.util.List;
 
 @Dao
@@ -16,10 +17,9 @@ public interface CourseLocationDao {
   @Insert
   List<Long> insert(List<CourseLocation> courseLocation);
 
-  @Query("SELECT * FROM CourseLocation WHERE courseLocation_id = :courseId")
-  Course findFirstByCourse(long courseId);
+  @Query("SELECT * FROM CourseLocation")
+  List<CourseLocation> findSelect();
 
-  @Query("SELECT * FROM Course")
-    //TODO By location
-  List<Location> findAll();
+  //TODO By location filter
+
 }

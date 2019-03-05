@@ -11,9 +11,12 @@ import android.arch.persistence.room.PrimaryKey;
 )
 public class CourseLocation {
 
-  @ColumnInfo(name = "courseLocation_id")
+  @ColumnInfo(name = "course_id")
   @PrimaryKey(autoGenerate = true)
   private long id;
+
+  @ColumnInfo(name = "location_id")
+  private long locationId;
 
   public long getId() {
     return id;
@@ -21,6 +24,14 @@ public class CourseLocation {
 
   public void setId(long id) {
     this.id = id;
+  }
+
+  public long getLocationId() {
+    return locationId;
+  }
+
+  public void setLocationId(long locationId) {
+    this.locationId = locationId;
   }
 
 

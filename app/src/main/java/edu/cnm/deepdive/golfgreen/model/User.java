@@ -4,22 +4,24 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
-@Entity(foreignKeys = @ForeignKey(entity = Location.class,
-    parentColumns = "user_id", childColumns = "user_id",
-    onDelete = ForeignKey.CASCADE)
+@Entity(
+
 )
 public class User {
   @ColumnInfo(name = "user_id")
   @PrimaryKey(autoGenerate = true)
-  private long id;
-  private Long userId;
+
+  private Long id;
   private String firstName;
   private String lastName;
   private String userName;
   private String favoriteCourse;
 
-  public long getId() {
+
+  public Long getId() {
     return id;
   }
 
@@ -27,13 +29,6 @@ public class User {
     this.id = id;
   }
 
-  public Long getUserId() {
-    return userId;
-  }
-
-  public void setUserId(Long userId) {
-    this.userId = userId;
-  }
 
   public String getFirstName() {
     return firstName;

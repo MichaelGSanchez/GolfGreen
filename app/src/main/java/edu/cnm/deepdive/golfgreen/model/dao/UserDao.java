@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.support.annotation.Nullable;
 import edu.cnm.deepdive.golfgreen.model.User;
 import java.util.List;
 
@@ -17,8 +18,9 @@ public interface UserDao {
   List<Long> insert(List<User> user);
 
 
-  @Query("SELECT firstName, lastName, userName FROM user")
-  public List<User> loadFullName();
+  @Query("SELECT firstName, lastName, userName FROM User")
+   List<User> findSelect();
+
 
 
 }

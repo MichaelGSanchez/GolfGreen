@@ -6,12 +6,14 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.Nullable;
+import edu.cnm.deepdive.golfgreen.model.GolfDB.Converters;
 import edu.cnm.deepdive.golfgreen.model.dao.CourseDao;
 import edu.cnm.deepdive.golfgreen.model.dao.CourseLocationDao;
 import edu.cnm.deepdive.golfgreen.model.dao.GolfApplication;
 import edu.cnm.deepdive.golfgreen.model.dao.LocationDao;
 import edu.cnm.deepdive.golfgreen.model.dao.UserDao;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Defines the local database as a collection of its entities and converters, with the singleton
@@ -22,6 +24,10 @@ import java.util.Calendar;
     entities = {Course.class, CourseLocation.class, Location.class, User.class},
     version = 1,
     exportSchema = true
+)
+
+@TypeConverters(
+    Converters.class
 )
 
 public abstract class GolfDB extends RoomDatabase {
@@ -58,6 +64,20 @@ public abstract class GolfDB extends RoomDatabase {
 
   }
 
+  public static class Converters {
+    @Nullable
+    @TypeConverter
+    public static Date dateFromLong(@Nullable Long time) {
+      return (time != null) ? new Date(time) : null;
+    }
 
+    @Nullable
+    @TypeConverter
+    public static Long longFromDate(@Nullable Date time) {
+      return (time != null) ? time.getTime() : null;
+    }
+
+
+  }
 
 }
