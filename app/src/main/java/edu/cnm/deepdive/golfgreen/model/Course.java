@@ -12,10 +12,19 @@ public class Course {
   @ColumnInfo(name = "course_id")
   @PrimaryKey(autoGenerate = true)
   private long id;
-  private long courseId;
+
+  @ColumnInfo(name = "price")
+  private int price;
+
+  @ColumnInfo(name = "difficulty")
   private int difficulty;
+
+  @ColumnInfo(name = "url")
   private String url;
+
+  @ColumnInfo(name = "phone_number")
   private long phoneNumber;
+
 
   public long getId() {
     return id;
@@ -25,12 +34,12 @@ public class Course {
     this.id = id;
   }
 
-  public Long getCourseId() {
-    return courseId;
+  public int getPrice() {
+    return price;
   }
 
-  public void setCourseId(Long courseId) {
-    this.courseId = courseId;
+  public void setPrice(int price) {
+    this.price = price;
   }
 
   public int getDifficulty() {

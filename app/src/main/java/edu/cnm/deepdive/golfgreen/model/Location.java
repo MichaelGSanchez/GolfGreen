@@ -20,11 +20,22 @@ public class Location {
 
   @NonNull
 
+  @ColumnInfo(name = "latitude")
   private Long latitude;
+
+  @ColumnInfo (name = "longitude")
   private Long longitude;
+
+  @ColumnInfo(name = "city")
   private String city;
+
+  @ColumnInfo (name = "zip")
   private Long zip;
+
+  @ColumnInfo (name = "max_radius")
   private int maxRadius;
+
+  @ColumnInfo(name = "time_stamp")
   private Date timeStamp;
 
   @ColumnInfo(name = "user_id")

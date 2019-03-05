@@ -10,12 +10,6 @@
   <!-- TODO: Update blank fragment layout -->
 
 
-<!--  <item android:id="@+id/search"
-    android:title="@string/search_title"
-    android:icon="@drawable/ic_zoom_in_search_holder"
-    android:showAsAction="always|ActionView"
-    android:actionViewClass="android.support.v7.widget.SearchView"/>
-   <item/>-->
 
   <TextView
     android:layout_width="400dp"
@@ -23,7 +17,9 @@
     android:text="@string/hello_blank_fragment"
     android:textColor="#000000"
     android:textSize="72sp"/>
-
-
+<android.support.v7.widget.AppCompatImageButton
+  android:id="@+id/image"
+  android:layout_width="20dp"
+  android:layout_height="20dp"/>
 
 </FrameLayout>

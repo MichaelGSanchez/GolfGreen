@@ -18,7 +18,7 @@ public interface UserDao {
   List<Long> insert(List<User> user);
 
 
-  @Query("SELECT firstName, lastName, userName FROM User")
+  @Query("SELECT first_name, last_name, user_name FROM User")
    List<User> findSelect();
 
 
