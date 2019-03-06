@@ -16,4 +16,11 @@
   <string name="nav_user_name">User Name</string>
   <string name="nav_user_name_subheading">User Email</string>
   <string name="search_title">Search</string>
+  <string name="favorite_courses">Favorite Courses</string>
+  <string name="course_title">Course Title</string>
+  <string name="course_city">Course City</string>
+  <string name="favorite_course">Favorite Course</string>
+  <string name="profile_settings">Profile Settings</string>
+  <string name="home">Home</string>
+
 </resources>

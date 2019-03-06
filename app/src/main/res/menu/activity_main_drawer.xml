@@ -7,16 +7,16 @@
     <item
       android:id="@+id/fragment_home"
       android:icon="@drawable/ic_home_black_24dp"
-      android:title="Home"/>
+      android:title="@string/home"/>
     <item
       android:id="@+id/fragment_course_favorite"
       android:icon="@drawable/ic_golf_course_black_24dp"
-      android:title="Favorite Courses"/>
+      android:title="@string/favorite_courses"/>
 
     <item
       android:id="@+id/fragment_profile_settings"
       android:icon="@drawable/ic_menu_manage"
-      android:title="Profile Settings"/>
+      android:title="@string/profile_settings"/>
   </group>
 
 

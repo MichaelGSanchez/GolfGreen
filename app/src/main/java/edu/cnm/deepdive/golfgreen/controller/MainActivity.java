@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,14 +10,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.EditText;
 import edu.cnm.deepdive.golfgreen.R;
+import edu.cnm.deepdive.golfgreen.model.Course;
+import edu.cnm.deepdive.golfgreen.model.CourseLocation;
+import edu.cnm.deepdive.golfgreen.model.Location;
+import edu.cnm.deepdive.golfgreen.model.User;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
-
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +56,6 @@ public class MainActivity extends AppCompatActivity
 
 
   }
-
 
   @Override
   public void onBackPressed() {
@@ -92,9 +103,8 @@ public class MainActivity extends AppCompatActivity
             null);
         break;
       case R.id.fragment_profile_settings:
-        args.putString(CourseFavorite.BODY_TEXT_KEY, "Profile Settings Frag.");
-        loadFragment(new CourseFavorite(), R.id.fragment_container, "fragment_profile_settings",
-            args);
+        loadFragment(new ProfileSettings(), R.id.fragment_container, "fragment_profile_settings",
+            null);
         break;
 
     }

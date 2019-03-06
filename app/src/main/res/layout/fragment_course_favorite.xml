@@ -1,19 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  <android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/linearLayout"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:background="#020202"
+  android:layout_height="wrap_content"
+  android:background="#FFFFFF"
   tools:context=".controller.CourseFavorite">
 
   <!-- TODO: Update blank fragment layout -->
 
-  <TextView
-    android:id="@+id/body_text"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:textColor="@color/colorPrimary"
-    android:textSize="36sp"
-    android:text="Course Fav Fragment"/>
+    <TextView
+      android:id="@+id/favorite_course"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:text="@string/favorite_course"
+      android:textColor="#000000"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toTopOf="@+id/card_view"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
 
-</FrameLayout>
+  <TextView
+    android:id="@+id/course_title"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp"
+    android:layout_marginTop="8dp"
+    android:text="@string/course_title"
+    android:textColor="#000000"
+    android:textSize="18sp"
+    app:layout_constraintTop_toBottomOf="@+id/card_view"/>
+  <TextView
+    android:id="@+id/course_city"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:text="@string/course_city"
+    android:textColor="#000000"
+    app:layout_constraintStart_toStartOf="@+id/course_title"
+    app:layout_constraintTop_toBottomOf="@+id/course_title"/>
+  <android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="0dp"
+    android:layout_height="200dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_gravity="center"
+    card_view:cardBackgroundColor="#b1b1b1"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="@dimen/fab_margin"
+    card_view:layout_constraintEnd_toEndOf="parent"
+    card_view:layout_constraintTop_toBottomOf="@+id/favorite_course"
+    card_view:layout_constraintHorizontal_bias="0.0"
+    card_view:layout_constraintStart_toStartOf="parent">
+    <ImageView
+      android:id="@+id/imageView3"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:src="@mipmap/gglauncher"/>
+  </android.support.v7.widget.CardView>
+
+
+</android.support.constraint.ConstraintLayout>
