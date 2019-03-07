@@ -3,26 +3,29 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:id="@+id/linearLayout"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:background="#FFFFFF"
+  android:background="@drawable/ic_golf_favorite_courses_bg"
   tools:context=".controller.CourseFavorite">
 
   <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-      android:id="@+id/favorite_course"
+    <android.support.v7.widget.RecyclerView
+      android:id="@+id/recyclerView"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/favorite_course"
-      android:textColor="#000000"
-      android:textSize="24sp"
-      app:layout_constraintBottom_toTopOf="@+id/card_view"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"/>
-
+      android:layout_height="22dp"/>
   <TextView
+    android:id="@+id/favorite_course"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/favorite_courses"
+    android:textColor="#000000"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/card_view"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/recyclerView"/>
+
+    <TextView
     android:id="@+id/course_title"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

@@ -4,7 +4,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:background="@mipmap/ic_golf_course_im"
+  android:background="@drawable/ic_golf_course_background"
   tools:context=".controller.Home">
 
   <!-- TODO: Update blank fragment layout -->
@@ -18,7 +18,7 @@
     android:layout_width="396dp"
     android:layout_height="match_parent"
     android:text="@string/welcome"
-    android:textColor="#000000"
+    android:textColor="#FFFFFF"
     android:textSize="32sp"
     android:gravity="center_horizontal"
     />
@@ -27,7 +27,7 @@
     android:layout_width="match_parent"
     android:layout_height="1050dp"
     android:text="@string/sub_welcome"
-    android:textColor="#000000"
+    android:textColor="#FFFFFF"
     android:textSize="24sp"
     android:gravity="center_horizontal"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:text="@string/search_prompt"
-    android:textColor="#000000"
+    android:textColor="#FFFFFF"
     android:textSize="24sp"
     android:gravity="center_horizontal"
     app:layout_constraintBottom_toBottomOf="parent"

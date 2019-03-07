@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
 
-    Fragment fragment_home = new Home();
+    Fragment fragmentHome = new Home();
 
     FragmentManager manager = getSupportFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();
-    transaction.add(R.id.fragment_container, fragment_home ,"home" );
+    transaction.add(R.id.fragment_container, fragmentHome ,"home" );
     transaction.addToBackStack(null);
     transaction.commit();
 
