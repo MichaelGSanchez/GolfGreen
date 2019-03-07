@@ -1,10 +1,13 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
+
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,20 +18,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.EditText;
+
 import edu.cnm.deepdive.golfgreen.R;
-import edu.cnm.deepdive.golfgreen.model.Course;
-import edu.cnm.deepdive.golfgreen.model.CourseLocation;
-import edu.cnm.deepdive.golfgreen.model.Location;
-import edu.cnm.deepdive.golfgreen.model.User;
+
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +42,13 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
 
-/*
-    FragmentManager fragmentManager = this.getSupportFragmentManager();
-    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-    fragmentTransaction.replace(R.id.nav_view);
-    fragmentTransaction.add(R.id.fragment_containe
-    fragmentTransaction.commit();
-*/
+    Fragment fragment_home = new Home();
+
+    FragmentManager manager = getSupportFragmentManager();
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.add(R.id.fragment_container, fragment_home ,"home" );
+    transaction.addToBackStack(null);
+    transaction.commit();
 
 
   }
