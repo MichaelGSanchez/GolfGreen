@@ -15,6 +15,8 @@ import java.util.List;
 
 public class CourseFavorite extends Fragment {
 
+  private RecyclerView favoriteCourseRecyclerView;
+  private RecyclerView.Adapter courseAdapter;
 
 
   @Override
@@ -23,14 +25,19 @@ public class CourseFavorite extends Fragment {
     View view = inflater.inflate(R.layout.fragment_course_favorite, container, false);
     Bundle args = getArguments();
 
+/*   favoriteCourseRecyclerView = (RecyclerView) view
+       .findViewById(R.id.fragment_course_favorite);
+   favoriteCourseRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+    updateUI();*/
+
     return view;
   }
 
-/*
-  public class CourseHolder extends CourseFavorite{
+/*  public class CourseHolder extends CourseFavorite{
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private RecyclerView.Adapter courseAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     @Override
@@ -52,12 +59,14 @@ public class CourseFavorite extends Fragment {
       recyclerView.setAdapter(adapter);
     }
 
-
-  }
-  public class MyAdapter extends RecyclerView.Adapter<CourseHolder> {
+  }*/
+/*  public class MyAdapter extends RecyclerView.Adapter<CourseHolder> {
 
     private List<Course> dataset;
 
+    public CourseHolder(List<Course> courses) {
+      courses = courses;
+    }
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
       public TextView textView;
@@ -94,10 +103,9 @@ public class CourseFavorite extends Fragment {
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-      return dataset.length;
+      return dataset.size();
     }
-  }
-*/
+  }*/
 
 
 }
