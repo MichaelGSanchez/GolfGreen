@@ -13,7 +13,7 @@
     <android.support.v7.widget.RecyclerView
       android:id="@+id/recyclerView"
       android:layout_width="match_parent"
-      android:layout_height="22dp"/>
+      android:layout_height="wrap_content"/>
 
   <TextView
     android:id="@+id/favorite_course"
@@ -48,24 +48,24 @@
   <android.support.v7.widget.CardView
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
-    android:layout_width="0dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
     android:layout_gravity="center"
-    card_view:cardBackgroundColor="#b1b1b1"
+    card_view:cardBackgroundColor="#00fffefe"
     card_view:cardCornerRadius="4dp"
     card_view:cardElevation="@dimen/fab_margin"
     card_view:layout_constraintEnd_toEndOf="parent"
-    card_view:layout_constraintTop_toBottomOf="@+id/favorite_course"
-    card_view:layout_constraintHorizontal_bias="0.0"
-    card_view:layout_constraintStart_toStartOf="parent">
+    card_view:layout_constraintStart_toStartOf="parent"
+    card_view:layout_constraintTop_toBottomOf="@+id/favorite_course">
 
     <ImageView
-      android:id="@+id/imageView3"
+      android:id="@+id/imageView"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:src="@mipmap/gglauncher"/>
+      android:src="@drawable/golf_card_view_holder"/>
   </android.support.v7.widget.CardView>
 
 
