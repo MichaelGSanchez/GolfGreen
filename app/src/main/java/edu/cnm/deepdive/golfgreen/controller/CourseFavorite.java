@@ -15,9 +15,6 @@ import java.util.List;
 
 public class CourseFavorite extends Fragment {
 
-  private RecyclerView favoriteCourseRecyclerView;
-  private RecyclerView.Adapter courseAdapter;
-
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,

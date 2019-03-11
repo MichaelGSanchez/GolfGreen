@@ -1,9 +1,7 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
-
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,13 +11,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
 import edu.cnm.deepdive.golfgreen.R;
+import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
 
 
 public class MainActivity extends AppCompatActivity
@@ -47,7 +43,6 @@ public class MainActivity extends AppCompatActivity
     FragmentManager manager = getSupportFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();
     transaction.add(R.id.fragment_container, fragmentHome ,"home" );
-    transaction.addToBackStack(null);
     transaction.commit();
 
   }
@@ -72,19 +67,19 @@ public class MainActivity extends AppCompatActivity
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-    int id = item.getItemId();
-
-    //noinspection SimplifiableIfStatement
-    if (id == R.id.action_settings) {
-      return true;
+    boolean handeled = true;
+    switch (item.getItemId()){
+      case R.id.action_settings:
+        getActionBar();
+        break;
+      case R.id.sign_out:
+        signOut();
+        break;
+      default:
+        handeled = super.onOptionsItemSelected(item);
     }
-
-    return super.onOptionsItemSelected(item);
+    return handeled;
   }
-
 
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
@@ -117,5 +112,16 @@ public class MainActivity extends AppCompatActivity
     manager.beginTransaction()
         .add(container, fragment, tag)
         .commit();
+  }
+
+  private void signOut(){
+    GoogleSignInService.getInstance().getClient()
+        .signOut()
+        .addOnCompleteListener(this, (task -> {
+          GoogleSignInService.getInstance().setAccount(null);
+          Intent intent = new Intent (this, LoginActivity.class);
+          intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+          startActivity(intent);
+        }));
   }
 }

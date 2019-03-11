@@ -1,7 +1,6 @@
-package edu.cnm.deepdive.golfgreen.model.dao;
+package edu.cnm.deepdive.golfgreen;
 
 import android.app.Application;
-import edu.cnm.deepdive.golfgreen.model.GolfDB;
 
 public class GolfApplication extends Application {
 

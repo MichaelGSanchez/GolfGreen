@@ -22,5 +22,14 @@
   <string name="favorite_course">Favorite Course</string>
   <string name="profile_settings">Profile Settings</string>
   <string name="home">Home</string>
+  <string name="user_name">User Name</string>
+  <string name="first_name">First Name</string>
+  <string name="last_name">Last Name</string>
+  <string name="use_location">Use Location</string>
+  <string name="save_changes">Save Changes</string>
+  <string name="discard_changes">Discard Changes</string>
+  <string name="delete_account">Delete Account</string>
+  <string name="login_failure_message">Unable to sign in with provided credentials</string>
+  <string name="sign_out">sign out</string>
 
 </resources>

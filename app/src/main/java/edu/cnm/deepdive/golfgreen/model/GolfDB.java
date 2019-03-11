@@ -9,10 +9,9 @@ import android.support.annotation.Nullable;
 import edu.cnm.deepdive.golfgreen.model.GolfDB.Converters;
 import edu.cnm.deepdive.golfgreen.model.dao.CourseDao;
 import edu.cnm.deepdive.golfgreen.model.dao.CourseLocationDao;
-import edu.cnm.deepdive.golfgreen.model.dao.GolfApplication;
+import edu.cnm.deepdive.golfgreen.GolfApplication;
 import edu.cnm.deepdive.golfgreen.model.dao.LocationDao;
 import edu.cnm.deepdive.golfgreen.model.dao.UserDao;
-import java.util.Calendar;
 import java.util.Date;
 
 /**

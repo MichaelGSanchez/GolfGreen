@@ -15,9 +15,10 @@
     android:title="@string/filter_by"
     app:showAsAction="ifRoom"/>
 
-  <include
-    layout="@layout/fragment_home"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+  <item
+    android:id="@+id/sign_out"
+    android:title="@string/sign_out"
+    app:showAsAction="never"/>
+
 
 </menu>
