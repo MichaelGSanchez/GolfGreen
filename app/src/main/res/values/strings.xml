@@ -6,9 +6,6 @@
   <string name="nav_header_subtitle">android.studio@android.com</string>
   <string name="nav_header_desc">Navigation header</string>
   <string name="filter_by">Filter By…</string>
-
-
-  <!-- TODO: Remove or change this placeholder text -->
   <string name="welcome">Welcome To Golf Green</string>
   <string name="sub_welcome">Saving You Green Before You Hit The Green</string>
   <string name="search_prompt">Search Location To Begin</string>
@@ -31,5 +28,8 @@
   <string name="delete_account">Delete Account</string>
   <string name="login_failure_message">Unable to sign in with provided credentials</string>
   <string name="sign_out">sign out</string>
+  <string name="sign_in_welcome">Welcome,</string>
+  <string name="sign_in_sub">Please sign in to continue</string>
+
 
 </resources>

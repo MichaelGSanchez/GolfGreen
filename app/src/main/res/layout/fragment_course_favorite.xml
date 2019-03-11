@@ -8,7 +8,6 @@
   android:background="@drawable/ic_golf_favorite_courses_bg"
   tools:context=".controller.CourseFavorite">
 
-  <!-- TODO: Update blank fragment layout -->
 
     <android.support.v7.widget.RecyclerView
       android:id="@+id/recyclerView"
