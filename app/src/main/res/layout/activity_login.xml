@@ -27,8 +27,8 @@
     android:text="@string/sign_in_sub"
     android:textColor="#FFFFFF"
     android:textSize="24sp"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toBottomOf="@id/sign_in_welcome"/>
 
   <com.google.android.gms.common.SignInButton

@@ -5,14 +5,21 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
+import android.content.res.Resources;
+import android.renderscript.ScriptGroup.Input;
 import android.support.annotation.Nullable;
+import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.GolfDB.Converters;
 import edu.cnm.deepdive.golfgreen.model.dao.CourseDao;
 import edu.cnm.deepdive.golfgreen.model.dao.CourseLocationDao;
 import edu.cnm.deepdive.golfgreen.GolfApplication;
 import edu.cnm.deepdive.golfgreen.model.dao.LocationDao;
 import edu.cnm.deepdive.golfgreen.model.dao.UserDao;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Date;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
 
 /**
  * Defines the local database as a collection of its entities and converters, with the singleton
@@ -61,6 +68,8 @@ public abstract class GolfDB extends RoomDatabase {
         GolfApplication.getInstance().getApplicationContext(), GolfDB.class, DB_NAME)
         .build();
 
+
+
   }
 
   public static class Converters {
@@ -78,5 +87,6 @@ public abstract class GolfDB extends RoomDatabase {
 
 
   }
+
 
 }

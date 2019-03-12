@@ -2,6 +2,7 @@ package edu.cnm.deepdive.golfgreen.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup.Input;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,11 +12,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
+import java.io.IOException;
+
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 
 public class MainActivity extends AppCompatActivity
@@ -44,6 +55,20 @@ public class MainActivity extends AppCompatActivity
     FragmentTransaction transaction = manager.beginTransaction();
     transaction.add(R.id.fragment_container, fragmentHome ,"home" );
     transaction.commit();
+
+    try (
+        InputStream input = getResources().openRawResource(R.raw.location);
+        Reader reader = new InputStreamReader(input);
+        CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT);
+    ){
+      for (CSVRecord record : parser){
+        String col0 = record.get(0);
+        String col1 = record.get(1);
+      }
+    } catch (IOException e) {
+      Log.e("Welp, it don't work... ", getClass().getSimpleName());
+    }
+
 
   }
 
