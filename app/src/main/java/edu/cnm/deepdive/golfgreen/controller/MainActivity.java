@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
     transaction.add(R.id.fragment_container, fragmentHome ,"home" );
     transaction.commit();
 
-    try (
+/*    try (
         InputStream input = getResources().openRawResource(R.raw.location);
         Reader reader = new InputStreamReader(input);
         CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
       }
     } catch (IOException e) {
       Log.e("Welp, it don't work... ", getClass().getSimpleName());
-    }
+    }*/
 
 
   }
@@ -115,6 +115,14 @@ public class MainActivity extends AppCompatActivity
         break;
       case R.id.fragment_course_favorite:
         loadFragment(new CourseFavorite(), R.id.fragment_container, "fragment_course_favorite",
+            null);
+        break;
+      case R.id.fragment_search_result:
+        loadFragment(new SearchResult(), R.id.fragment_container, "fragment_search_result",
+            null);
+        break;
+      case R.id.fragment_individual_course:
+        loadFragment(new IndividualCourse(), R.id.fragment_container, "fragment_individual_course",
             null);
         break;
       case R.id.fragment_profile_settings:

@@ -5,11 +5,17 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@drawable/ic_golf_favorite_courses_bg"
   tools:context=".controller.CourseFavorite">
 
+  <ImageView
+    android:src="@drawable/ic_golf_favorite_courses_bg"
+    android:adjustViewBounds="true"
+    android:scaleType="centerCrop"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    />
 
-    <android.support.v7.widget.RecyclerView
+  <android.support.v7.widget.RecyclerView
       android:id="@+id/recyclerView"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"/>

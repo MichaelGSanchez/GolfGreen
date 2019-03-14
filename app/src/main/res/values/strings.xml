@@ -8,7 +8,7 @@
   <string name="filter_by">Filter By…</string>
   <string name="welcome">Welcome To Golf Green</string>
   <string name="sub_welcome">Saving You Green Before You Hit The Green</string>
-  <string name="search_prompt">Search Location To Begin</string>
+  <string name="search_prompt">Search Location Above To Begin</string>
   <string name="tee_box">Tee Box:</string>
   <string name="nav_user_name">User Name</string>
   <string name="nav_user_name_subheading">User Email</string>
@@ -30,6 +30,9 @@
   <string name="sign_out">sign out</string>
   <string name="sign_in_welcome">Welcome,</string>
   <string name="sign_in_sub">Please sign in to continue</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

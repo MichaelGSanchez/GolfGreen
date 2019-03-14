@@ -50,7 +50,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/JetBrains/IntelliJ%20IDEA%202018.3.2/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_filter_list_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/JetBrains/IntelliJ%20IDEA%202018.3.2/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_favorite_border_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -60,7 +60,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_filter_list" />
+                            <entry key="outputName" value="ic_favorite_border" />
                             <entry key="sourceFile" value="C:\Users\Lobo_" />
                           </map>
                         </option>

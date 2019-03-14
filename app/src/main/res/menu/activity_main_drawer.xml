@@ -8,16 +8,28 @@
       android:id="@+id/fragment_home"
       android:icon="@drawable/ic_home_black_24dp"
       android:title="@string/home"/>
+
     <item
       android:id="@+id/fragment_course_favorite"
-      android:icon="@drawable/ic_golf_course_black_24dp"
+      android:icon="@drawable/ic_favorite_border"
       android:title="@string/favorite_courses"/>
+
+    <item
+      android:id="@+id/fragment_search_result"
+      android:icon="@drawable/ic_search"
+      android:title="Location Search Result"/>
+
+    <item
+      android:id="@+id/fragment_individual_course"
+      android:icon="@drawable/ic_golf_course_black_24dp"
+      android:title="Course Page"/>
 
     <item
       android:id="@+id/fragment_profile_settings"
       android:icon="@drawable/ic_menu_manage"
       android:title="@string/profile_settings"/>
   </group>
+
 
 
 </menu>

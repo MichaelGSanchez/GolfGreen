@@ -5,8 +5,15 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@drawable/gg_sign_in_bg"
   tools:context=".controller.LoginActivity">
+
+  <ImageView
+    android:src="@drawable/gg_sign_in_bg"
+    android:adjustViewBounds="true"
+    android:scaleType="centerCrop"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"/>
+
 
   <TextView
     android:id="@+id/sign_in_welcome"
