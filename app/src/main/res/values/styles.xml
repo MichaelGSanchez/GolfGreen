@@ -8,6 +8,14 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="Courses" parent="AppTheme">
+    <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    <item name="android:layout_margin">@dimen/card_spacing</item>
+    <item name="contentPadding">@dimen/card_padding</item>
+    <item name="cardElevation">@dimen/card_rest_elevation</item>
+    <item name="cardMaxElevation">@dimen/card_max_elevation</item>
+  </style>
+
   <style name="AppTheme.NoActionBar">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
@@ -15,7 +23,6 @@
 
   <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
   <style name="Widget.AppCompat.ActionBar.TabBar" parent="ThemeOverlay.AppCompat.ActionBar"/>
-
   <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
 </resources>

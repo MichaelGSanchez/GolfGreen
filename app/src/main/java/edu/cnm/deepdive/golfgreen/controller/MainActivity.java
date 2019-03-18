@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity
         loadFragment(new Home(), R.id.fragment_container, "fragment_home", null);
         break;
       case R.id.fragment_course_favorite:
-        loadFragment(new CourseFavorite(), R.id.fragment_container, "fragment_course_favorite",
+        loadFragment(new CourseFavorite(), R.id.fragment_container, "course_favorite_item",
             null);
         break;
       case R.id.fragment_search_result:
