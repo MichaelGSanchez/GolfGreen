@@ -12,30 +12,13 @@ import android.view.ViewGroup;
 import edu.cnm.deepdive.golfgreen.R;
 
 
-public class CourseFavorite extends Fragment implements OnClickListener {
+public class CourseFavorite extends Fragment {
 
-  private RecyclerView recyclerView;
-  private RecyclerView.Adapter adapter;
-  private RecyclerView.LayoutManager layoutManager;
-
-  @Override
-  public void onCreate( Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    Content(R.layout.fragment_course_favorite);
-    recyclerView = (RecyclerView) findViewById(R.id.course_favorite);
-    recyclerView.setHasFixedSize(true);
-    layoutManager = new LinearLayoutManager(this);
-    recyclerView.setLayoutManager(layoutManager);
-    adapter = new MyAdapter(dataset);
-    recyclerView.setAdapter(adapter);
-  }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_course_favorite, container, false);
-
-    return view;
+    return inflater.inflate(R.layout.fragment_home, container, false);
   }
 
 
