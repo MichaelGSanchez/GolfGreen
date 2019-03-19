@@ -16,8 +16,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
   private ItemClickListener clickListener;
 
   // data is passed into the constructor
-  FavoriteAdapter(Context context, List<String> data) {
-    this.inflater = LayoutInflater.from(context);
+  FavoriteAdapter(CourseFavorite context, List<String> data) {
     this.data = data;
   }
 
@@ -66,7 +65,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
   }
 
   // allows clicks events to be caught
-  void setClickListener(ItemClickListener itemClickListener) {
+   void setClickListener(ItemClickListener itemClickListener) {
     this.clickListener = itemClickListener;
   }
 
