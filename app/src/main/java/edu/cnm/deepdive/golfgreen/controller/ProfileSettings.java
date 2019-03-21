@@ -9,7 +9,6 @@ import edu.cnm.deepdive.golfgreen.R;
 
 public class ProfileSettings extends Fragment {
 
-
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {

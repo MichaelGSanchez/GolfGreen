@@ -14,29 +14,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 import edu.cnm.deepdive.golfgreen.R;
-import edu.cnm.deepdive.golfgreen.controller.FavoriteAdapter.ItemClickListener;
+import edu.cnm.deepdive.golfgreen.model.Course;
 import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
-import java.io.IOException;
-
-
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.ArrayList;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener   {
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +50,6 @@ public class MainActivity extends AppCompatActivity
     FragmentTransaction transaction = manager.beginTransaction();
     transaction.add(R.id.fragment_container, fragmentHome ,"home" );
     transaction.commit();
-
 
   }
 

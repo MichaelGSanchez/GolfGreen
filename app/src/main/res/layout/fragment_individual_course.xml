@@ -15,6 +15,7 @@
       android:layout_height="wrap_content"
       android:orientation="vertical"/>
   </ScrollView>
+  
   <ImageView
     android:src="@drawable/individual_courses"
     android:adjustViewBounds="true"

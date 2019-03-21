@@ -30,6 +30,16 @@ public class Course {
   private long phoneNumber;
 
 
+  public Course(long id, String courseName, int price, int difficulty, String url,
+      long phoneNumber) {
+    this.id = id;
+    this.courseName = courseName;
+    this.price = price;
+    this.difficulty = difficulty;
+    this.url = url;
+    this.phoneNumber = phoneNumber;
+  }
+
   public String getCourseName() {
     return courseName;
   }

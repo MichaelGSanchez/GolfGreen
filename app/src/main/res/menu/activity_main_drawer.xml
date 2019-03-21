@@ -28,6 +28,11 @@
       android:id="@+id/fragment_profile_settings"
       android:icon="@drawable/ic_menu_manage"
       android:title="@string/profile_settings"/>
+
+    <item
+      android:id="@+id/fragment_recycler_view"
+      android:visible="false"/>
+
   </group>
 
 

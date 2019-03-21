@@ -1,77 +1,68 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
+
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import edu.cnm.deepdive.golfgreen.R;
+import edu.cnm.deepdive.golfgreen.model.Course;
 import java.util.List;
 
-public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
+//RecyclerView.Adapter
+//RecyclerView.ViewHolder
 
-  private List<String> data;
-  private LayoutInflater inflater;
-  private ItemClickListener clickListener;
+public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder> {
 
-  // data is passed into the constructor
-  FavoriteAdapter(CourseFavorite context, List<String> data) {
-    this.data = data;
+  private Context context;
+  private List<Course> favoriteList;
+
+  public FavoriteAdapter(Context context,
+      List<Course> favoriteList) {
+    this.context = context;
+    this.favoriteList = favoriteList;
   }
 
-  // inflates the row layout from xml when needed
   @Override
-  public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = inflater.inflate(R.layout.fragment_course_favorite, parent, false);
-    return new ViewHolder(view);
+  public FavoriteViewHolder onCreateViewHolder( ViewGroup viewGroup, int viewType) {
+    LayoutInflater inflater = LayoutInflater.from(context);
+    View view = inflater.inflate(R.layout.fragment_course_favorite, null);//NULL IS FOR THE VIEW GROUP SHOULD YOU NEED IT
+    FavoriteViewHolder holder = new FavoriteViewHolder(view);
+    return holder;
   }
 
-  // binds the data to the TextView in each row
   @Override
-  public void onBindViewHolder(ViewHolder holder, int position) {
-    String animal = data.get(position);
-    holder.myTextView.setText(animal);
+  public void onBindViewHolder(FavoriteViewHolder holder, int position) {
+    Course course =  favoriteList.get(position);
+
+    holder.textViewCourseName.setText(course.getCourseName());
+    holder.textViewPrice.setText(course.getPrice());
+    holder.textViewDifficulty.setText(course.getDifficulty());
+    holder.textViewPhoneNumber.setText((int) course.getPhoneNumber());//Casted to int, that may not be needed
+
   }
 
-  // total number of rows
   @Override
   public int getItemCount() {
-    return data.size();
+    return favoriteList.size();
   }
 
+  class FavoriteViewHolder extends RecyclerView.ViewHolder{
 
-  // stores and recycles views as they are scrolled off screen
-  public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    TextView textViewCourseName, textViewPhoneNumber, textViewPrice, textViewDifficulty;
 
-    TextView myTextView;
-
-    ViewHolder(View itemView) {
+    public FavoriteViewHolder( View itemView) {
       super(itemView);
-      myTextView = itemView.findViewById(R.id.fragment_course_favorite);
-      itemView.setOnClickListener(this);
-    }
 
-    @Override
-    public void onClick(View view) {
-      if (clickListener != null)
-        clickListener.onItemClick(view, getAdapterPosition());
+      textViewCourseName = itemView.findViewById(R.id.textViewCourseName);
+      textViewPrice = itemView.findViewById(R.id.textViewPrice);
+      textViewDifficulty = itemView.findViewById(R.id.textViewDifficulty);
+      textViewPhoneNumber = itemView.findViewById(R.id.textViewPhoneNumber);
     }
   }
 
-  // convenience method for getting data at click position
-  String getItem(int id) {
-    return data.get(id);
-  }
 
-  // allows clicks events to be caught
-   void setClickListener(ItemClickListener itemClickListener) {
-    this.clickListener = itemClickListener;
-  }
-
-  // parent activity will implement this method to respond to click events
-  public interface ItemClickListener {
-
-    void onItemClick(View view, int position);
-  }
 }
