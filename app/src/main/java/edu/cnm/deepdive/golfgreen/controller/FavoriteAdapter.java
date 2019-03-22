@@ -2,7 +2,6 @@ package edu.cnm.deepdive.golfgreen.controller;
 
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +29,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
   @Override
   public FavoriteViewHolder onCreateViewHolder( ViewGroup viewGroup, int viewType) {
     LayoutInflater inflater = LayoutInflater.from(context);
-    View view = inflater.inflate(R.layout.fragment_course_favorite, null);//NULL IS FOR THE VIEW GROUP SHOULD YOU NEED IT
+    View view = inflater.inflate(R.layout.course_item, viewGroup, false);
     FavoriteViewHolder holder = new FavoriteViewHolder(view);
     return holder;
   }
@@ -40,15 +39,15 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
     Course course =  favoriteList.get(position);
 
     holder.textViewCourseName.setText(course.getCourseName());
-    holder.textViewPrice.setText(course.getPrice());
-    holder.textViewDifficulty.setText(course.getDifficulty());
-    holder.textViewPhoneNumber.setText((int) course.getPhoneNumber());//Casted to int, that may not be needed
+    holder.textViewPrice.setText(String.valueOf(course.getPrice()));
+    holder.textViewDifficulty.setText(String.valueOf(course.getDifficulty()));
+    holder.textViewPhoneNumber.setText(String.valueOf(course.getPhoneNumber()));//Casted to int, that may not be needed
 
   }
 
   @Override
   public int getItemCount() {
-    return favoriteList.size();
+    return favoriteList.size();//Favorite list in a bundle, or in query when it rotates
   }
 
   class FavoriteViewHolder extends RecyclerView.ViewHolder{

@@ -1,6 +1,5 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,23 +10,28 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.Course;
+import java.util.ArrayList;
 import java.util.List;
-import org.w3c.dom.Text;
 
 
 public class CourseFavorite extends Fragment  {
 
-  private RecyclerView recyclerViewFragment;
+  private RecyclerViewFragment recyclerViewFragment;
   private FavoriteAdapter adapter;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+    View view = inflater.inflate(R.layout.fragment_course_favorite, container, false);
 
-    recyclerViewFragment = (RecyclerView) view
-        .findViewById(R.id.recyclerView);
-    (recyclerViewFragment).setLayoutManager(new LinearLayoutManager(getActivity()));
+    List<Course>courses = new ArrayList<>();
+    Course course = new Course(0, "Course: UNM North", 35, 7, "url: unm.edu", 505l-555l-5555l);
+    courses.add(course);
+
+    recyclerViewFragment = new RecyclerViewFragment(courses);
+    getFragmentManager().beginTransaction().add(
+         R.id.course_favorite_fragment_container, recyclerViewFragment,"FragmentContainer")
+        .commit();
 
     updateUI();
 
@@ -43,7 +47,7 @@ public class CourseFavorite extends Fragment  {
   private void updateUI(){
 
   }
-  private class CrimeHolder extends RecyclerView.ViewHolder
+  private class FavoriteViewHolder extends RecyclerView.ViewHolder
       implements View.OnClickListener{
 
     private TextView courseName;
@@ -52,8 +56,8 @@ public class CourseFavorite extends Fragment  {
     private TextView difficulty;
 
 
-    public CrimeHolder(LayoutInflater inflater, ViewGroup parent) {
-      super(inflater.inflate(R.layout.fragment_course_favorite, parent, false));
+    public FavoriteViewHolder(LayoutInflater inflater, ViewGroup parent) {
+      super(inflater.inflate(R.layout.course_item, parent, false));
       itemView.setOnClickListener(this);
 
       courseName = (TextView) itemView.findViewById(R.id.textViewCourseName);
@@ -61,53 +65,51 @@ public class CourseFavorite extends Fragment  {
       difficulty = (TextView) itemView.findViewById(R.id.textViewDifficulty);
       phoneNumber = (TextView) itemView.findViewById(R.id.textViewPhoneNumber);
 
-
     }
 
+/*
     @Override
     public void onClick(View v) {
 
     }
+*/
 
-/*    @Override
+    @Override
     public void onClick(View view){
-      CourseFavorite c = Course.new(getActivity(), mCrime.getId());
-      startActivity(intent);
+
     }
 
-    public void bind(Crime crime){
-      mCrime = crime;
-      courseName.setText(mCrime.getTitle());
-      phoneNumber.setText(mCrime.getDate().toString());
+    public void bind(Course course){
+      courseName.setText(Course.class.getName());
 
     }
   }
 
-  private class CrimeAdapter extends RecyclerView.Adapter<CrimeHolder> {
+  private class FavoriteAdapter extends RecyclerView.Adapter<FavoriteViewHolder> {
 
-    private List<Crime> mCrimes;
+    private List<Course> courses;
 
-    public CrimeAdapter(List<Crime> crimes) {
-      mCrimes = crimes;
+    public FavoriteAdapter(List<Course> courses) {
+
     }
 
     @Override
-    public CrimeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FavoriteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
       LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
 
-      return new CrimeHolder(layoutInflater, parent);
+      return new FavoriteViewHolder(layoutInflater, parent);
     }
 
     @Override
-    public void onBindViewHolder(CrimeHolder holder, int position) {
-      Crime crime = mCrimes.get(position);
-      holder.bind(crime);
+    public void onBindViewHolder(FavoriteViewHolder holder, int position) {
+      Course course = courses.get(position);
+      holder.bind(course);
     }
 
     @Override
     public int getItemCount() {
-      return mCrimes.size();
-    }*/
+      return courses.size();
+    }
   }
 
 }

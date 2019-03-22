@@ -23,7 +23,15 @@ public class RecyclerViewFragment extends Fragment {
 
   private static final String TAG = "RecyclerViewFragment";
   private static final String KEY_LAYOUT_MANAGER = "layoutManager";
+  private final List<Course> courses;
 
+  public RecyclerViewFragment(List<Course> courses) {
+    this.courses = courses;
+  }
+
+  public RecyclerViewFragment(){
+    this.courses = null;
+  }
 
   private enum LayoutManagerType {
     LINEAR_LAYOUT_MANAGER
@@ -31,7 +39,7 @@ public class RecyclerViewFragment extends Fragment {
 
   protected LayoutManagerType currentLayoutManagerType;
   protected RecyclerView recyclerView;
-  protected Adapter adapter;
+  protected RecyclerView.Adapter adapter;
   protected RecyclerView.LayoutManager layoutManager;
   protected List<Course> favoriteList;
 
@@ -66,13 +74,11 @@ public class RecyclerViewFragment extends Fragment {
           .getSerializable(KEY_LAYOUT_MANAGER);
     }
     setRecyclerViewLayoutManager(currentLayoutManagerType);
-/*
 
-    adapter = new ();
+    adapter = new FavoriteAdapter(getActivity(),courses);
     // Set CustomAdapter as the adapter for RecyclerView.
-    recyclerView.setAdapter((RecyclerView.Adapter) adapter);
+    recyclerView.setAdapter(adapter);
     // END_INCLUDE(initializeRecyclerView)
-*/
 
     return view;
   }
