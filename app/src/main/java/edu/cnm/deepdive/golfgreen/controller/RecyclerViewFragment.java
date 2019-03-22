@@ -30,7 +30,6 @@ public class RecyclerViewFragment extends Fragment {
   }
 
   protected LayoutManagerType currentLayoutManagerType;
-
   protected RecyclerView recyclerView;
   protected Adapter adapter;
   protected RecyclerView.LayoutManager layoutManager;
@@ -48,11 +47,11 @@ public class RecyclerViewFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    View rootView = inflater.inflate(R.layout.fragment_recycler_view, container, false);
-    rootView.setTag(TAG);
+    View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+    view.setTag(TAG);
 
     // BEGIN_INCLUDE(initializeRecyclerView)
-    recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+    recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
     // LinearLayoutManager is used here, this will layout the elements in a similar fashion
     // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
@@ -67,13 +66,15 @@ public class RecyclerViewFragment extends Fragment {
           .getSerializable(KEY_LAYOUT_MANAGER);
     }
     setRecyclerViewLayoutManager(currentLayoutManagerType);
+/*
 
-  /*  adapter = new FavoriteAdapter();
+    adapter = new ();
     // Set CustomAdapter as the adapter for RecyclerView.
-    recyclerView.setAdapter();
-    // END_INCLUDE(initializeRecyclerView)*/
+    recyclerView.setAdapter((RecyclerView.Adapter) adapter);
+    // END_INCLUDE(initializeRecyclerView)
+*/
 
-    return rootView;
+    return view;
   }
 
   /**
