@@ -2,7 +2,6 @@ package edu.cnm.deepdive.golfgreen.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup.Input;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,22 +10,38 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import edu.cnm.deepdive.golfgreen.R;
-import edu.cnm.deepdive.golfgreen.model.Course;
 import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
-import java.util.ArrayList;
-import java.util.List;
 
+
+/**
+ * This <code>MainActivity</code> is the launching point of the entire app.
+ * The app runs through <code>MainActivity</code> and implements the navigational
+ * features of its {@link NavigationView} in the <code>MainActivity</code>
+ *
+ *
+ * @author Michael Sanchez &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ * @copyright to MichaelGSanchez.github.io
+ *
+ */
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener   {
 
+  /**
+   *<code>OnCreate</code> launches the app within the <code>MainActivity</code> method. In
+   * <code>onCreate</code> it calls the <code>R.layout.activity_main<code/> to enable all
+   * other <code>.XML</code> files. Furthermore, it also uses a {@Link FragmentManager} to
+   * have the app start in its <code>Home</code> fragment.
+   *
+   *
+   * @param savedInstanceState Saves the instance created in <code>onCreate</code>
+   */
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +86,11 @@ public class MainActivity extends AppCompatActivity
     }*/
 
 
-
+  /**
+   * <code>onBackPressed</code> ensures that when back is pressed it exits the
+   * app, that is unless the nav drawer is open.  If the nav drawer is open the back arrow
+   * or button simply exits you from the nav drawer back to what you were doing in the app.
+   */
 
   @Override
   public void onBackPressed() {
@@ -83,6 +102,14 @@ public class MainActivity extends AppCompatActivity
     }
   }
 
+  /**
+   * <code>onCreateOptionsMenu</code> inflates <code>R.menu.options_menu</code>
+   * which houses the signout function and search bar. Which is the crux of the entire application.
+   * @param menu this is simply calling the menu which it will implement in
+   * <code>onCreateOptionsMenu</code>
+   *
+   */
+
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
@@ -90,6 +117,14 @@ public class MainActivity extends AppCompatActivity
 
     return true;
   }
+
+  /**
+   * <code>onOptionsItemSelected</code> provides the ability to switch back and fourth between
+   * the items in <code>onCreateOptionsMenu</code>.
+   *
+   * @param item calls the menu items to select from
+   * @return returns boolean value of handled once an item is selected.
+   */
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
@@ -107,6 +142,14 @@ public class MainActivity extends AppCompatActivity
     return handeled;
   }
 
+
+  /**
+   * <code>onNavigationItemSelected</code> is a switch statement that launches fragments
+   * once they are selected.
+   *
+   * @param item gets the id associated with each fragment.
+   * @return closes the drawer once the desired fragment is selected and started.
+   */
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
     Bundle args = new Bundle();
@@ -133,11 +176,16 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
   }
 
+  /**
+   * Once the {@link Fragment} is selected from <code>onNavigationItemSelected</code> this
+   * initializes the fragment to start.
+   */
   public void loadFragment(Fragment fragment, int container, String tag, Bundle args) {
     FragmentManager manager = getSupportFragmentManager();
     if (args != null) {
@@ -148,6 +196,11 @@ public class MainActivity extends AppCompatActivity
         .commit();
   }
 
+  /**
+   * <code>signOut</code> is used so the user may sign out of their signed in google
+   * account, should they desire.
+   * 
+   */
   private void signOut(){
     GoogleSignInService.getInstance().getClient()
         .signOut()

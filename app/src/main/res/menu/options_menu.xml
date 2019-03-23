@@ -9,13 +9,6 @@
     app:showAsAction="always"/>
 
   <item
-    android:id="@+id/action_settings"
-    android:orderInCategory="100"
-    android:icon="@drawable/ic_filter_list"
-    android:title="@string/filter_by"
-    app:showAsAction="ifRoom"/>
-
-  <item
     android:id="@+id/sign_out"
     android:title="@string/sign_out"
     app:showAsAction="never"/>
