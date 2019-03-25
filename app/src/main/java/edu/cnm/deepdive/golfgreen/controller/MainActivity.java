@@ -24,7 +24,7 @@ import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
  * features of its {@link NavigationView} in the <code>MainActivity</code>
  *
  *
- * @author Michael Sanchez &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @author Michael Sanchez
  * @version 1.0
  *
  */

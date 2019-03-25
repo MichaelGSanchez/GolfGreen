@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,19 +14,36 @@ import edu.cnm.deepdive.golfgreen.model.Course;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * <code>CourseFavorite</code> is a {@link Fragment} that is used to store favorite
+ * golf courses that are selected by each user. This fragment implements a {@link RecyclerView} through
+ * another fragment.
+ *
+ * @author Michael Sanchez
+ * @version 1.0
+ *
+ */
 public class CourseFavorite extends Fragment  {
 
   private RecyclerViewFragment recyclerViewFragment;
   private FavoriteAdapter adapter;
 
+  /**
+   * <code>onCreateView</code> inflates <code>R.layout.fragment_course_favorite</code>
+   * and also starts the card display of the <code>RecyclerView</code>
+   *
+   * @param inflater inflates the .XML files associted with the fragment
+   * @param container references the <code>@fragment_container</code> in <code>content_main.xml</code>
+   * @param savedInstanceState saves the view once it is created
+   * @return returns the adjusted view to the UI from the xml.files and fragments that have changed it.
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_course_favorite, container, false);
 
     List<Course>courses = new ArrayList<>();
-    Course course = new Course(0, "Course: UNM North", 35, 7, "url: unm.edu", 505l-555l-5555l);
+    Course course = new Course(0, "Course: UNM North", 35, 7, "url: unm.edu", 5055555555l);
     courses.add(course);
 
     recyclerViewFragment = new RecyclerViewFragment(courses);
@@ -38,6 +56,9 @@ public class CourseFavorite extends Fragment  {
     return view;
   }
 
+  /**
+   * Is part of the fragment class to implement the updated UI.
+   */
   @Override
   public void onResume(){
     super.onResume();
@@ -45,8 +66,13 @@ public class CourseFavorite extends Fragment  {
   }
 
   private void updateUI(){
-
+  //Do nothing!
   }
+
+  /**
+   * This is the holder, that is used to help describe the metadata found in the adapter and where it
+   * will be displayed in the <code>RecyclerView</code>
+   */
   private class FavoriteViewHolder extends RecyclerView.ViewHolder
       implements View.OnClickListener{
 
@@ -55,7 +81,11 @@ public class CourseFavorite extends Fragment  {
     private TextView price;
     private TextView difficulty;
 
-
+    /**
+     * Holds the data that will be displayed in each individual card.
+     * @param inflater inflates <code>R.layout.course_item</code>
+     * @param parent refers to the ViewGroup and how the information will be displayed being set based off of its parent
+     */
     public FavoriteViewHolder(LayoutInflater inflater, ViewGroup parent) {
       super(inflater.inflate(R.layout.course_item, parent, false));
       itemView.setOnClickListener(this);
@@ -67,24 +97,32 @@ public class CourseFavorite extends Fragment  {
 
     }
 
-/*
-    @Override
-    public void onClick(View v) {
-
-    }
-*/
-
+    /**
+     * This will take you to the individual course page from the <code>favoriteCourses</code> fragment.
+     * @param view
+     */
     @Override
     public void onClick(View view){
-
+    //TODO implement onClick to open selected course page from the favorite fragment.
     }
 
+    /**
+     * Connects the data being pulled from the <code>Course</code> class.
+     * @param course is the entity that houses the parameters on info that a course may be able to display
+     */
     public void bind(Course course){
       courseName.setText(Course.class.getName());
+      phoneNumber.setText(Course.class.getName());
+      price.setText(Course.class.getName());
+      difficulty.setText(Course.class.getName());
 
     }
   }
 
+  /**
+   * The adapter that links <code>FavoriteAdapter</code> and <code>CourseFavorite</code>.  This adapter
+   * returns a list from <code>Course.java</code>.
+   */
   private class FavoriteAdapter extends RecyclerView.Adapter<FavoriteViewHolder> {
 
     private List<Course> courses;
@@ -93,6 +131,12 @@ public class CourseFavorite extends Fragment  {
 
     }
 
+    /**
+     * <code>onCreateViewHolder</code> returns the new layout that has been inflated
+     * @param parent is the parameter given to <code>ViewGroup</code>
+     * @param viewType is the view type to help implement the <code>recyclerView</code>
+     * @return returns the updated <code>FavoriteViewHolder</code>
+     */
     @Override
     public FavoriteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
       LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
@@ -100,12 +144,22 @@ public class CourseFavorite extends Fragment  {
       return new FavoriteViewHolder(layoutInflater, parent);
     }
 
+    /**
+     * Binds the information from the holder and adapter to help implement <code<>RecyclerView</>
+     * @param holder is the holder of the metadata being passed to the <code>onBindViewHolder</code>
+     * @param position get's the information from <code>Course.java</code>
+     */
+
     @Override
     public void onBindViewHolder(FavoriteViewHolder holder, int position) {
       Course course = courses.get(position);
       holder.bind(course);
     }
 
+    /**
+     * retrieves the number of items being passed to the recycler view and returns their size.
+     * @return returns the items from <code>courses<code/>
+     */
     @Override
     public int getItemCount() {
       return courses.size();

@@ -12,9 +12,7 @@ import android.view.ViewGroup;
 import edu.cnm.deepdive.golfgreen.R;
 
 /**
- * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the
- *  interface to handle interaction events. Use
- * the  factory method to create an instance of this fragment.
+ * A simple {@link Fragment} subclass. Inflates and activates the .XML file <code>fragment_search_result</code>
  */
 public class SearchResult extends Fragment {
 

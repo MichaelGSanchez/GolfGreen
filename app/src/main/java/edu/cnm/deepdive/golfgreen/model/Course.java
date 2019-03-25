@@ -8,6 +8,14 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(
 )
 
+/**
+ * Shows the data that is stored in the table for <code>Course.java</code>.  It also shows it's setters and getters
+ * for the different fields stored in the <code>Course.java</code> field.
+ *
+ *  @author Michael Sanchez
+ *  @version 1.0
+ *
+ */
 public class Course {
 
   @ColumnInfo(name = "course_id")
@@ -29,7 +37,9 @@ public class Course {
   @ColumnInfo(name = "phone_number")
   private long phoneNumber;
 
-
+  /**
+   * Declares the values of each item within the table.
+   */
   public Course(long id, String courseName, int price, int difficulty, String url,
       long phoneNumber) {
     this.id = id;

@@ -16,23 +16,35 @@ import edu.cnm.deepdive.golfgreen.model.Course;
 import java.util.List;
 
 /**
- * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} and a
- * {@link GridLayoutManager}.
+ * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} to be used in multiple fragments
+ *
  */
+
 public class RecyclerViewFragment extends Fragment {
 
   private static final String TAG = "RecyclerViewFragment";
   private static final String KEY_LAYOUT_MANAGER = "layoutManager";
   private final List<Course> courses;
 
+  /**
+   * a constructor that is looking to return a list of courses from <code>Course.java</code>
+   * @param courses
+   */
+
   public RecyclerViewFragment(List<Course> courses) {
     this.courses = courses;
   }
 
+  /**
+   *Purposefully is in place to help with the implementation of <code>RecyclerViewFragment</code> above.
+   */
   public RecyclerViewFragment(){
     this.courses = null;
   }
 
+  /**
+   * Is used to help with the layout of the REcyclerView
+   */
   private enum LayoutManagerType {
     LINEAR_LAYOUT_MANAGER
   }
@@ -43,43 +55,42 @@ public class RecyclerViewFragment extends Fragment {
   protected RecyclerView.LayoutManager layoutManager;
   protected List<Course> favoriteList;
 
+  /**
+   *Will initialize dataset, from built in database csv files.
+   * @param savedInstanceState
+   */
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    // Initialize dataset, this data would usually come from a local content provider or
-    // remote server.
-
   }
 
+  /**
+   *Is used to initialize the recyclerView and layout the elements to the recyclerView. This also let's the recycler view
+   * know that the elements will be displayed in a LinearLayout format.
+   * @param inflater inflates <code>fragment_recycler_view</code>
+   * @param container refers to the fragment container in <code>content_main.xml</code>
+   * @param savedInstanceState saves the instance created
+   * @return return the updated recycler view
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
     view.setTag(TAG);
-
-    // BEGIN_INCLUDE(initializeRecyclerView)
     recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-
-    // LinearLayoutManager is used here, this will layout the elements in a similar fashion
-    // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
-    // elements are laid out.
-    layoutManager = new LinearLayoutManager(getActivity());
-
+        layoutManager = new LinearLayoutManager(getActivity());
     currentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
 
     if (savedInstanceState != null) {
-      // Restore saved layout manager type.
+
       currentLayoutManagerType = (LayoutManagerType) savedInstanceState
           .getSerializable(KEY_LAYOUT_MANAGER);
     }
     setRecyclerViewLayoutManager(currentLayoutManagerType);
 
     adapter = new FavoriteAdapter(getActivity(),courses);
-    // Set CustomAdapter as the adapter for RecyclerView.
     recyclerView.setAdapter(adapter);
-    // END_INCLUDE(initializeRecyclerView)
-
     return view;
   }
 
@@ -91,7 +102,10 @@ public class RecyclerViewFragment extends Fragment {
   public void setRecyclerViewLayoutManager(LayoutManagerType layoutManagerType) {
     int scrollPosition = 0;
 
-    // If a layout manager has already been set, get current scroll position.
+    /**
+     * If a layout manager has already been set, get current scroll position.
+      */
+
     if (recyclerView.getLayoutManager() != null) {
       scrollPosition = ((LinearLayoutManager) recyclerView.getLayoutManager())
           .findFirstCompletelyVisibleItemPosition();
@@ -112,15 +126,16 @@ public class RecyclerViewFragment extends Fragment {
     recyclerView.scrollToPosition(scrollPosition);
   }
 
+  /**
+   *  Saves the now selected layout and layoutManager
+   *
+   * @param savedInstanceState Saves currently selected layout manager.
+   */
   @Override
   public void onSaveInstanceState(Bundle savedInstanceState) {
-    // Save currently selected layout manager.
+    //
     savedInstanceState.putSerializable(KEY_LAYOUT_MANAGER, currentLayoutManagerType);
     super.onSaveInstanceState(savedInstanceState);
   }
 
-  /**
-   * Generates Strings for RecyclerView's adapter. This data would usually come
-   * from a local content provider or remote server.
-   */
 }
