@@ -23,4 +23,4 @@ the course's city.  See **table 1.2** for an example.
 
 ## Entity Relationship Diagram
 
-[Link To ERD](https://www.lucidchart.com/invitations/accept/48a9b553-c558-4405-ae7a-de8aa7898f40)
+[Link To Lucidchart](https://www.lucidchart.com/invitations/accept/48a9b553-c558-4405-ae7a-de8aa7898f40)

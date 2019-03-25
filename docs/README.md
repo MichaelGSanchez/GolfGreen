@@ -2,9 +2,8 @@
 
 ## Generative Art Scratchpad
 
-**Links**
-* [DDL](docs/ddl.md)
-* [Javadoc](docs/api/) 
+[JavaDoc](api/)
+[DDL](ddl.md)
 
 **What will your app be called?**
 
