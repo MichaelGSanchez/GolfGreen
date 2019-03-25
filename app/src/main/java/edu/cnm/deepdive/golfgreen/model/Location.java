@@ -7,10 +7,20 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import java.util.Date;
 
+/**
+ * The entity class that stores the information in the location table.  This
+ * table has a many to many relationship with <code>Course.java</code> and is the
+ * has an intermediary of <code>CourseLocation.java</code>
+ */
+
 @Entity(foreignKeys = @ForeignKey(entity = User.class,
     parentColumns = "user_id", childColumns = "user_id",
     onDelete = ForeignKey.CASCADE)
 )
+
+/**
+ * The setters, getters and information stored in the table
+ */
 
 public class Location {
 

@@ -6,12 +6,19 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import edu.cnm.deepdive.golfgreen.GolfApplication;
 
-
+/**
+ * <code>GoogleSignInService</code> is the class that implements Google Sign In on the <code>MainActivity.java</code>
+ */
 public class GoogleSignInService {
 
   private GoogleSignInClient client;
   private GoogleSignInAccount account;
 
+  /**
+   * These lines of code, are what trigger the <code>MainActivity.java</code> to
+   * start the googleSingIn process. It also sets the parameters of what items will be needed from
+   * the google sign in client.
+   */
   private GoogleSignInService() {
     GoogleSignInOptions options =
         new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -21,6 +28,11 @@ public class GoogleSignInService {
     client = GoogleSignIn.getClient(GolfApplication.getInstance(), options);
   }
 
+
+  /**
+   * The list of getters and setters that are being retrieved  by the google sign in client
+   * @return
+   */
   public static GoogleSignInService getInstance(){
     return InstanceHolder.INSTANCE;
   }

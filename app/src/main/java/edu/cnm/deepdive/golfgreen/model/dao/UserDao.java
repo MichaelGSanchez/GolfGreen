@@ -8,6 +8,9 @@ import android.support.annotation.Nullable;
 import edu.cnm.deepdive.golfgreen.model.User;
 import java.util.List;
 
+/**
+ * The Dao that accesses <code>User.java</code> to query and return information.
+ */
 @Dao
 public interface UserDao {
 

@@ -7,6 +7,10 @@ import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.golfgreen.model.Location;
 import java.util.List;
 
+/**
+ * The Dao that accesses the information and in <code>Location.java</code>
+ */
+
 @Dao
 public interface LocationDao {
 

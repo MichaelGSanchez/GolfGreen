@@ -10,6 +10,10 @@ import edu.cnm.deepdive.golfgreen.model.Location;
 import edu.cnm.deepdive.golfgreen.model.User;
 import java.util.List;
 
+
+/**
+ * The Dao interface that access the items being passed from <code>CourseLocation.java</code>
+ */
 @Dao
 public interface CourseLocationDao {
   @Insert(onConflict = OnConflictStrategy.IGNORE)

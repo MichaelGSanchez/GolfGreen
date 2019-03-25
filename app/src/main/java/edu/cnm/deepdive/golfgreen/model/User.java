@@ -7,9 +7,16 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+/**
+ * The entity class of <code>User.java</code> that stores the information of the user in its table.
+ */
 @Entity(
 
 )
+
+/**
+ * The fields that are outlined in the table of the class.
+ */
 public class User {
   @ColumnInfo(name = "user_id")
   @PrimaryKey(autoGenerate = true)

@@ -6,6 +6,10 @@ import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.golfgreen.model.Course;
 import java.util.List;
 
+
+/**
+ * A Dao interface that access the information from <code>Course.java</code>
+ */
 @Dao
 public interface CourseDao {
 
