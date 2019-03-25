@@ -26,7 +26,6 @@ import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
  *
  * @author Michael Sanchez &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
  * @version 1.0
- * @copyright to MichaelGSanchez.github.io
  *
  */
 
@@ -34,9 +33,9 @@ public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener   {
 
   /**
-   *<code>OnCreate</code> launches the app within the <code>MainActivity</code> method. In
-   * <code>onCreate</code> it calls the <code>R.layout.activity_main<code/> to enable all
-   * other <code>.XML</code> files. Furthermore, it also uses a {@Link FragmentManager} to
+   *<code>OnCreate</code> launches the app within the <code> MainActivity </code> method. In
+   * <code>onCreate</code> it calls the <code>R.layout.activity_main</code> to enable all
+   * other <code>.XML</code> files. Furthermore, it also uses a {@link FragmentManager} to
    * have the app start in its <code>Home</code> fragment.
    *
    *
@@ -199,7 +198,7 @@ public class MainActivity extends AppCompatActivity
   /**
    * <code>signOut</code> is used so the user may sign out of their signed in google
    * account, should they desire.
-   * 
+   *
    */
   private void signOut(){
     GoogleSignInService.getInstance().getClient()

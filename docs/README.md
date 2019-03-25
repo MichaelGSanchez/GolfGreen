@@ -2,6 +2,10 @@
 
 ## Generative Art Scratchpad
 
+**Links**
+* [DDL](docs/ddl.md)
+* [Javadoc](docs/api/)
+
 **What will your app be called?**
 
 The app that I am purposing will currently be called, GolfGreen.
