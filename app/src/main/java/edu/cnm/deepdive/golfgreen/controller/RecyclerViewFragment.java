@@ -7,12 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.Course;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,16 +26,9 @@ public class RecyclerViewFragment extends Fragment {
 
   private static final String TAG = "RecyclerViewFragment";
   private static final String KEY_LAYOUT_MANAGER = "layoutManager";
-  private final List<Course> courses;
+  public static final String KEY_COURSES = "courses";
+  private ArrayList<Course> courses;
 
-  /**
-   * a constructor that is looking to return a list of courses from <code>Course.java</code>
-   * @param courses
-   */
-
-  public RecyclerViewFragment(List<Course> courses) {
-    this.courses = courses;
-  }
 
   /**
    *Purposefully is in place to help with the implementation of <code>RecyclerViewFragment</code> above.
@@ -78,6 +73,7 @@ public class RecyclerViewFragment extends Fragment {
       Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
     view.setTag(TAG);
+    courses = (ArrayList<Course>) getArguments().getSerializable(KEY_COURSES);
     recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(getActivity());
     currentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;

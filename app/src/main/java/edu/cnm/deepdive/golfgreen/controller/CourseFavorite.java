@@ -1,9 +1,9 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
+import static edu.cnm.deepdive.golfgreen.controller.RecyclerViewFragment.KEY_COURSES;
+
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,11 +42,14 @@ public class CourseFavorite extends Fragment  {
       Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_course_favorite, container, false);
 
-    List<Course>courses = new ArrayList<>();
+    ArrayList<Course>courses = new ArrayList<>();
     Course course = new Course(0, "Course: UNM North", 35, 7, "url: unm.edu", 5055555555l);
     courses.add(course);
 
-    recyclerViewFragment = new RecyclerViewFragment(courses);
+    recyclerViewFragment = new RecyclerViewFragment();
+    Bundle args = new Bundle();
+    args.putSerializable(KEY_COURSES, courses);
+    recyclerViewFragment.setArguments(args);
     getFragmentManager().beginTransaction().add(
          R.id.course_favorite_fragment_container, recyclerViewFragment,"FragmentContainer")
         .commit();
