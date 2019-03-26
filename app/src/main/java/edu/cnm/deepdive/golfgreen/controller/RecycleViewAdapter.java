@@ -2,8 +2,6 @@ package edu.cnm.deepdive.golfgreen.controller;
 
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +19,7 @@ import java.util.List;
  * @version 1.0
  */
 
-public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder> {
+public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.FavoriteViewHolder> {
 
   Context context;
   private RecyclerViewFragment recyclerViewFragment;
@@ -32,7 +30,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
    *
    * @param favoriteList the items which the adapter will grab to display to the fragment.
    */
-  public FavoriteAdapter(Context context,
+  public RecycleViewAdapter(Context context,
       List<Course> favoriteList) {
     this.context = context;
     this.favoriteList = favoriteList;

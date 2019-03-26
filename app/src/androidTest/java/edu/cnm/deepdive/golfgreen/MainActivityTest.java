@@ -5,8 +5,12 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
+import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.view.Gravity;
 import edu.cnm.deepdive.golfgreen.controller.MainActivity;
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,6 +23,24 @@ public class MainActivityTest {
   public ActivityTestRule<MainActivity> activityTestRule =
       new ActivityTestRule<>(MainActivity.class);
 
+
+/*
+  public void clickOnYourNavigationItem_ShowsYourScreen() {
+    // Open Drawer to click on navigation.
+    onView(withId(R.id.drawer_layout))
+        .check(matches(isClosed(Gravity.LEFT))) // Left Drawer should be closed.
+        .perform(DrawerActions.open()); // Open Drawer
+
+    // Start the screen of your activity.
+    onView(withId(R.id.nav_view))
+        .perform(NavigationViewActions.navigateTo(R.id.fragment_course_favorite));
+
+    // Check that you Activity was opened.
+    String expectedNoStatisticsText = InstrumentationRegistry.getTargetContext()
+        .getString(R.string.favorite_course);
+    onView(withId(R.id.recyclerView)).check(matches(withText(expectedNoStatisticsText)));
+  }
+*/
 
   @Test
   public void navigateToCourseFavorite() {

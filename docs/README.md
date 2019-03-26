@@ -1,18 +1,15 @@
-# GenScratchpad
+# Cohort 6: Stand Alone Project
 
-## Generative Art Scratchpad
+## Documentation
 
-* [JavaDoc](api/)
-* [DDL](ddl.md)
+**App Name**
 
-**What will your app be called?**
+*GolfGreen*, "Saving You Green Before You Hit The Green"
 
-The app that I am purposing will currently be called, GolfGreen.
-The reason behind the name is due to the apps ability to save
-the consumer "green" whilst on the links. 
+**Why GolfGreen?**
 
-**What is the basic functionality of the app?**
-
+**Current State of Completion and Readiness**
+```//TODO update me```
 The main functionality of the app is be to be a hub of
 information for all golfers. The info that will be provided
 will be pricing, golf course contact info, a link to the golf course site,
@@ -20,11 +17,21 @@ golf course difficulty, and layout of the course. You will be able
 to search using your location, or search for courses in a city or town 
 that you may be traveling to. 
 
-* [Wireframe of App](https://drive.google.com/open?id=1K9W7Mv8-_9f87j06k8jskFZvWIplORAv)
-* [ERD of GolfGreen](https://www.lucidchart.com/invitations/accept/48a9b553-c558-4405-ae7a-de8aa7898f40)
+**Android API Versions and Hardware**
+```//TODO update me```
+
+
+
+**Links**
+
+* [JavaDoc](api/)
+* [DDL](ddl.md)
+* [Wireframe of App](GolfGreenWireFrame.png)
+* [ERD of GolfGreen](GolfGreenErd.pdf)
 * [SQL Table's](SQLTables.md)
 
-**Who would find this app useful or fun, and when would they use it?**
+
+**User Stories**
 
 * User Story 1, The Avid Golfer
     
@@ -49,6 +56,25 @@ that you may be traveling to.
    green fees, location and pricing, it will also rate the golf courses difficulty. For a beginner,
    that is a very helpful hint and helps take away the intimidation factor. 
    Housing everything in one central location is helpful for all! 
+
+**List of 3rd Party Libraries**
+
+
+**Copyrights and Licenses**
+
+
+**Build Instructions**
+
+
+**Basic User Instructions**
+
+
+**Aestic and Cosmetic Improvments**
+
+
+**Stretch Goals**
+
+
 
 **Could the app be useful on its own, with not connection to the Internet?**
 

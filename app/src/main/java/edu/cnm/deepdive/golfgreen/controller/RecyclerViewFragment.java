@@ -1,17 +1,13 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.Course;
 import java.util.ArrayList;
@@ -86,7 +82,7 @@ public class RecyclerViewFragment extends Fragment {
     }
     setRecyclerViewLayoutManager(currentLayoutManagerType);
 
-    adapter = new FavoriteAdapter(getActivity(), courses);
+    adapter = new RecycleViewAdapter(getActivity(), courses);
     recyclerView.setAdapter(adapter);
     return view;
   }

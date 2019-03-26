@@ -9,10 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.Course;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 /**
  * <code>CourseFavorite</code> is a {@link Fragment} that is used to store favorite
@@ -25,7 +33,7 @@ import java.util.List;
 public class CourseFavorite extends Fragment {
 
   private RecyclerViewFragment recyclerViewFragment;
-  private FavoriteAdapter adapter;
+  private RecyclerViewAdapter adapter;
 
   /**
    * <code>onCreateView</code> inflates <code>R.layout.fragment_course_favorite</code>
@@ -128,14 +136,14 @@ public class CourseFavorite extends Fragment {
   }
 
   /**
-   * The adapter that links <code>FavoriteAdapter</code> and <code>CourseFavorite</code>.  This
+   * The adapter that links <code>RecycleViewAdapter</code> and <code>CourseFavorite</code>.  This
    * adapter returns a list from <code>Course.java</code>.
    */
-  private class FavoriteAdapter extends RecyclerView.Adapter<FavoriteViewHolder> {
+  private class RecyclerViewAdapter extends RecyclerView.Adapter<FavoriteViewHolder> {
 
     private List<Course> courses;
 
-    public FavoriteAdapter(List<Course> courses) {
+    public RecyclerViewAdapter(List<Course> courses) {
 
     }
 
@@ -177,5 +185,6 @@ public class CourseFavorite extends Fragment {
       return courses.size();
     }
   }
+
 
 }
