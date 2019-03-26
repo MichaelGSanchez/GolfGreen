@@ -18,6 +18,7 @@ import android.support.annotation.Nullable;
  * The fields that are outlined in the table of the class.
  */
 public class User {
+
   @ColumnInfo(name = "user_id")
   @PrimaryKey(autoGenerate = true)
 
@@ -26,13 +27,13 @@ public class User {
   @ColumnInfo(name = "first_name")
   private String firstName;
 
-  @ColumnInfo (name = "last_name")
+  @ColumnInfo(name = "last_name")
   private String lastName;
 
-  @ColumnInfo (name = "user_name")
+  @ColumnInfo(name = "user_name")
   private String userName;
 
-  @ColumnInfo (name = "favorite_course")
+  @ColumnInfo(name = "favorite_course")
   private String favoriteCourse;
 
 

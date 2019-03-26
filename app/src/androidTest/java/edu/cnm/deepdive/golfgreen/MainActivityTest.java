@@ -5,15 +5,9 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.*;
-
-import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.view.Gravity;
 import edu.cnm.deepdive.golfgreen.controller.MainActivity;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +29,7 @@ public class MainActivityTest {
     onView(withId(R.id.course_favorite_fragment_container))
         .check(matches(isDisplayed()));
   }
+
   @Test
   public void navigateToSearchFragment() {
     //Click on navigation item

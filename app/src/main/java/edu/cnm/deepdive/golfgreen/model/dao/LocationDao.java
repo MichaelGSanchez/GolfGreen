@@ -16,6 +16,7 @@ public interface LocationDao {
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
   List<Long> insert(Location... locations);
+
   @Insert
   List<Long> insert(List<Location> locations);
 
@@ -23,6 +24,6 @@ public interface LocationDao {
   Location findFirstByLocations(long locationId);
 
   @Query("SELECT * FROM Location")
-  //TODO By location
+    //TODO By location
   List<Location> findAll();
 }

@@ -21,7 +21,6 @@ public interface CourseDao {
 
   @Query
       ("SELECT * FROM Course")
-
-   List<Course> findAll();
+  List<Course> findAll();
 
 }

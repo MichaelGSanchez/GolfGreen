@@ -1,11 +1,8 @@
 package edu.cnm.deepdive.golfgreen.model.dao;
 
-import static org.junit.Assert.*;
-
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
-import edu.cnm.deepdive.golfgreen.model.Course;
 import edu.cnm.deepdive.golfgreen.model.GolfDB;
 import edu.cnm.deepdive.golfgreen.model.Location;
 import org.junit.After;
@@ -26,7 +23,7 @@ public class LocationDaoTest {
 
   @Test
   //TODO Add delete option from favorite courses
-  public void insert(){
+  public void insert() {
     //insert just shows that something has been inserted?
     Location location = new Location();
     //What we want to get

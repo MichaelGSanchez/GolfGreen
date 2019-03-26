@@ -8,9 +8,9 @@ import android.support.annotation.NonNull;
 import java.util.Date;
 
 /**
- * The entity class that stores the information in the location table.  This
- * table has a many to many relationship with <code>Course.java</code> and is the
- * has an intermediary of <code>CourseLocation.java</code>
+ * The entity class that stores the information in the location table.  This table has a many to
+ * many relationship with <code>Course.java</code> and is the has an intermediary of
+ * <code>CourseLocation.java</code>
  */
 
 @Entity(foreignKeys = @ForeignKey(entity = User.class,
@@ -33,16 +33,16 @@ public class Location {
   @ColumnInfo(name = "latitude")
   private Long latitude;
 
-  @ColumnInfo (name = "longitude")
+  @ColumnInfo(name = "longitude")
   private Long longitude;
 
   @ColumnInfo(name = "city")
   private String city;
 
-  @ColumnInfo (name = "zip")
+  @ColumnInfo(name = "zip")
   private Long zip;
 
-  @ColumnInfo (name = "max_radius")
+  @ColumnInfo(name = "max_radius")
   private int maxRadius;
 
   @ColumnInfo(name = "time_stamp")
@@ -51,14 +51,15 @@ public class Location {
   @ColumnInfo(name = "user_id")
   private long userId;
 
-  public long getId(){
+  public long getId() {
     return id;
   }
 
   public void setId(long id) {
     this.id = id;
   }
-  public Long getLatitude(){
+
+  public Long getLatitude() {
     return latitude;
   }
 

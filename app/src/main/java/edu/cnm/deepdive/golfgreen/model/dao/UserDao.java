@@ -22,8 +22,7 @@ public interface UserDao {
 
 
   @Query("SELECT first_name, last_name, user_name FROM User")
-   List<User> findSelect();
-
+  List<User> findSelect();
 
 
 }

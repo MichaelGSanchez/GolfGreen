@@ -22,7 +22,7 @@ public class Course {
   @PrimaryKey(autoGenerate = true)
   private long id;
 
-  @ColumnInfo (name = "course_name")
+  @ColumnInfo(name = "course_name")
   private String courseName;
 
   @ColumnInfo(name = "price")

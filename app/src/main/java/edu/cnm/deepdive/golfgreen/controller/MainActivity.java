@@ -19,25 +19,22 @@ import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
 
 
 /**
- * This <code>MainActivity</code> is the launching point of the entire app.
- * The app runs through <code>MainActivity</code> and implements the navigational
- * features of its {@link NavigationView} in the <code>MainActivity</code>
- *
+ * This <code>MainActivity</code> is the launching point of the entire app. The app runs through
+ * <code>MainActivity</code> and implements the navigational features of its {@link NavigationView}
+ * in the <code>MainActivity</code>
  *
  * @author Michael Sanchez
  * @version 1.0
- *
  */
 
 public class MainActivity extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener   {
+    implements NavigationView.OnNavigationItemSelectedListener {
 
   /**
-   *<code>OnCreate</code> launches the app within the <code> MainActivity </code> method. In
+   * <code>OnCreate</code> launches the app within the <code> MainActivity </code> method. In
    * <code>onCreate</code> it calls the <code>R.layout.activity_main</code> to enable all
-   * other <code>.XML</code> files. Furthermore, it also uses a {@link FragmentManager} to
-   * have the app start in its <code>Home</code> fragment.
-   *
+   * other <code>.XML</code> files. Furthermore, it also uses a {@link FragmentManager} to have the
+   * app start in its <code>Home</code> fragment.
    *
    * @param savedInstanceState Saves the instance created in <code>onCreate</code>
    */
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity
 
     FragmentManager manager = getSupportFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();
-    transaction.add(R.id.fragment_container, fragmentHome ,"home" );
+    transaction.add(R.id.fragment_container, fragmentHome, "home");
     transaction.commit();
 
   }
@@ -87,8 +84,8 @@ public class MainActivity extends AppCompatActivity
 
   /**
    * <code>onBackPressed</code> ensures that when back is pressed it exits the
-   * app, that is unless the nav drawer is open.  If the nav drawer is open the back arrow
-   * or button simply exits you from the nav drawer back to what you were doing in the app.
+   * app, that is unless the nav drawer is open.  If the nav drawer is open the back arrow or button
+   * simply exits you from the nav drawer back to what you were doing in the app.
    */
 
   @Override
@@ -104,9 +101,9 @@ public class MainActivity extends AppCompatActivity
   /**
    * <code>onCreateOptionsMenu</code> inflates <code>R.menu.options_menu</code>
    * which houses the signout function and search bar. Which is the crux of the entire application.
+   *
    * @param menu this is simply calling the menu which it will implement in
    * <code>onCreateOptionsMenu</code>
-   *
    */
 
   @Override
@@ -128,7 +125,7 @@ public class MainActivity extends AppCompatActivity
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     boolean handeled = true;
-    switch (item.getItemId()){
+    switch (item.getItemId()) {
       case R.id.action_settings:
         getActionBar();
         break;
@@ -175,7 +172,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
@@ -198,14 +194,13 @@ public class MainActivity extends AppCompatActivity
   /**
    * <code>signOut</code> is used so the user may sign out of their signed in google
    * account, should they desire.
-   *
    */
-  private void signOut(){
+  private void signOut() {
     GoogleSignInService.getInstance().getClient()
         .signOut()
         .addOnCompleteListener(this, (task -> {
           GoogleSignInService.getInstance().setAccount(null);
-          Intent intent = new Intent (this, LoginActivity.class);
+          Intent intent = new Intent(this, LoginActivity.class);
           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
           startActivity(intent);
         }));

@@ -3,9 +3,8 @@ package edu.cnm.deepdive.golfgreen;
 import android.app.Application;
 
 /**
- * Extends the built in <code>Application.java</code> class to allow the functionality of the
- * app to come across the view model.
- *
+ * Extends the built in <code>Application.java</code> class to allow the functionality of the app to
+ * come across the view model.
  */
 
 public class GolfApplication extends Application {
@@ -16,7 +15,7 @@ public class GolfApplication extends Application {
   public void onCreate() {
     super.onCreate();
     instance = this;
-   /* Stetho.initializeWithDefaults(this); // Comment out this line to disable Stetho.*/
+    /* Stetho.initializeWithDefaults(this); // Comment out this line to disable Stetho.*/
   }
 
   /**

@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 import edu.cnm.deepdive.golfgreen.R;
 
 /**
- * A simple {@link Fragment} subclass. Inflates and activates the .XML file <code>fragment_search_result</code>
+ * A simple {@link Fragment} subclass. Inflates and activates the .XML file
+ * <code>fragment_search_result</code>
  */
 public class SearchResult extends Fragment {
 

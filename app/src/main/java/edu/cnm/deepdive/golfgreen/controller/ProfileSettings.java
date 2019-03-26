@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import edu.cnm.deepdive.golfgreen.R;
 
 /**
- * This is the java class that is used to create and start the <code>ProfileSettings</code> fragment.
+ * This is the java class that is used to create and start the <code>ProfileSettings</code>
+ * fragment.
  */
 
 public class ProfileSettings extends Fragment {

@@ -69,10 +69,10 @@ public abstract class GolfDB extends RoomDatabase {
         .build();
 
 
-
   }
 
   public static class Converters {
+
     @Nullable
     @TypeConverter
     public static Date dateFromLong(@Nullable Long time) {

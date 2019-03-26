@@ -16,8 +16,10 @@ import java.util.List;
  */
 @Dao
 public interface CourseLocationDao {
+
   @Insert(onConflict = OnConflictStrategy.IGNORE)
   List<Long> insert(CourseLocation... courseLocation);
+
   @Insert
   List<Long> insert(List<CourseLocation> courseLocation);
 

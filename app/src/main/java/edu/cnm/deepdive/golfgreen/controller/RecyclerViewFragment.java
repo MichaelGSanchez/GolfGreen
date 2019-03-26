@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} to be used in multiple fragments
- *
+ * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} to be used in
+ * multiple fragments
  */
 
 public class RecyclerViewFragment extends Fragment {
@@ -31,9 +31,10 @@ public class RecyclerViewFragment extends Fragment {
 
 
   /**
-   *Purposefully is in place to help with the implementation of <code>RecyclerViewFragment</code> above.
+   * Purposefully is in place to help with the implementation of <code>RecyclerViewFragment</code>
+   * above.
    */
-  public RecyclerViewFragment(){
+  public RecyclerViewFragment() {
     this.courses = null;
   }
 
@@ -51,8 +52,7 @@ public class RecyclerViewFragment extends Fragment {
   protected List<Course> favoriteList;
 
   /**
-   *Will initialize dataset, from built in database csv files.
-   * @param savedInstanceState
+   * Will initialize dataset, from built in database csv files.
    */
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -61,8 +61,9 @@ public class RecyclerViewFragment extends Fragment {
   }
 
   /**
-   *Is used to initialize the recyclerView and layout the elements to the recyclerView. This also let's the recycler view
-   * know that the elements will be displayed in a LinearLayout format.
+   * Is used to initialize the recyclerView and layout the elements to the recyclerView. This also
+   * let's the recycler view know that the elements will be displayed in a LinearLayout format.
+   *
    * @param inflater inflates <code>fragment_recycler_view</code>
    * @param container refers to the fragment container in <code>content_main.xml</code>
    * @param savedInstanceState saves the instance created
@@ -75,7 +76,7 @@ public class RecyclerViewFragment extends Fragment {
     view.setTag(TAG);
     courses = (ArrayList<Course>) getArguments().getSerializable(KEY_COURSES);
     recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        layoutManager = new LinearLayoutManager(getActivity());
+    layoutManager = new LinearLayoutManager(getActivity());
     currentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
 
     if (savedInstanceState != null) {
@@ -85,7 +86,7 @@ public class RecyclerViewFragment extends Fragment {
     }
     setRecyclerViewLayoutManager(currentLayoutManagerType);
 
-    adapter = new FavoriteAdapter(getActivity(),courses);
+    adapter = new FavoriteAdapter(getActivity(), courses);
     recyclerView.setAdapter(adapter);
     return view;
   }
@@ -100,7 +101,7 @@ public class RecyclerViewFragment extends Fragment {
 
     /**
      * If a layout manager has already been set, get current scroll position.
-      */
+     */
 
     if (recyclerView.getLayoutManager() != null) {
       scrollPosition = ((LinearLayoutManager) recyclerView.getLayoutManager())
@@ -123,7 +124,7 @@ public class RecyclerViewFragment extends Fragment {
   }
 
   /**
-   *  Saves the now selected layout and layoutManager
+   * Saves the now selected layout and layoutManager
    *
    * @param savedInstanceState Saves currently selected layout manager.
    */
