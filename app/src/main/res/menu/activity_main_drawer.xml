@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/amd"
   tools:showIn="navigation_view">
 
   <group android:checkableBehavior="single">
@@ -17,12 +18,12 @@
     <item
       android:id="@+id/fragment_search_result"
       android:icon="@drawable/ic_search"
-      android:title="Location Search Result"/>
+      android:title="@string/location_search_result"/>
 
     <item
       android:id="@+id/fragment_individual_course"
       android:icon="@drawable/ic_golf_course_black_24dp"
-      android:title="Course Page"/>
+      android:title="@string/course_page"/>
 
     <item
       android:id="@+id/fragment_profile_settings"

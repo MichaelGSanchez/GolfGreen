@@ -31,5 +31,7 @@
   <string name="sign_out">sign out</string>
   <string name="sign_in_welcome">Welcome,</string>
   <string name="sign_in_sub">Please sign in to continue</string>
+  <string name="location_search_result">Location Search Result</string>
+  <string name="course_page">Course Page</string>
 
 </resources>
