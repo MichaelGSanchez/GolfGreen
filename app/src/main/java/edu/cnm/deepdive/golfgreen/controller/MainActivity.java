@@ -1,5 +1,7 @@
 package edu.cnm.deepdive.golfgreen.controller;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,21 +13,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
+import android.widget.SearchView;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
 
 
 /**
@@ -72,8 +65,22 @@ public class MainActivity extends AppCompatActivity
     transaction.add(R.id.fragment_container, fragmentHome, "home");
     transaction.commit();
 
+    handleIntent(getIntent());
+
   }
 
+  @Override
+  protected void onNewIntent(Intent intent) {
+
+    handleIntent(intent);
+  }
+
+  private void handleIntent(Intent intent) {
+    if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+      String query = intent.getStringExtra(SearchManager.QUERY);
+      //TODO Use the query to search your data somehow
+    }
+  }
 
 
   /**
@@ -104,6 +111,13 @@ public class MainActivity extends AppCompatActivity
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.options_menu, menu);
+
+    SearchManager searchManager =
+        (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+    SearchView searchView =
+        (SearchView) menu.findItem(R.id.search).getActionView();
+    searchView.setSearchableInfo(
+        searchManager.getSearchableInfo(getComponentName()));
 
     return true;
   }

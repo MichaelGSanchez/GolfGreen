@@ -3,13 +3,11 @@ package edu.cnm.deepdive.golfgreen.controller;
 import static edu.cnm.deepdive.golfgreen.controller.RecyclerViewFragment.KEY_COURSES;
 
 import android.os.Bundle;
-
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.Course;
@@ -24,7 +22,6 @@ public class SearchResult extends Fragment {
 
   private RecyclerViewFragment recyclerViewFragment;
   private RecyclerViewAdapter adapter;
-
 
 
   @Override

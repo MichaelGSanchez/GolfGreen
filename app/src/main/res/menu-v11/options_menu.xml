@@ -6,13 +6,13 @@
     android:id="@+id/search"
     android:title="@string/search_title"
     android:icon="@drawable/ic_search"
-    android:actionViewClass="android.widget.SearchView"
-    android:showAsAction="always"/>
+    app:actionViewClass="android.widget.SearchView"
+    app:showAsAction="always"/>
 
   <item
     android:id="@+id/sign_out"
     android:title="@string/sign_out"
-    android:showAsAction="never"/>
+    app:showAsAction="never"/>
 
 
 </menu>

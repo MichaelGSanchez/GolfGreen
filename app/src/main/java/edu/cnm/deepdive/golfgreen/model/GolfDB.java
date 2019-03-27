@@ -76,6 +76,10 @@ public abstract class GolfDB extends RoomDatabase {
 
   }
 
+  /**
+   * This method converts a <code>Date</code> into a <code>Long</code>
+   * by completing the inverse operation of each other.
+   */
   public static class Converters {
 
     @Nullable
@@ -93,6 +97,10 @@ public abstract class GolfDB extends RoomDatabase {
 
   }
 
+  /**
+   * This class helps extend Room so the <code>PreLoadTask</code> can take
+   * place below.
+   */
   private class Callback extends RoomDatabase.Callback {
 
     @Override
@@ -102,8 +110,15 @@ public abstract class GolfDB extends RoomDatabase {
     }
   }
 
+  /**
+   * The <code>PreLoadTask</code> implements the the <code>.raw</code> files
+   * to be loaded in from each individual entity classes and dao interfaces.
+   */
   private class PreLoadTask extends Thread {
 
+    /**
+     * This constructor implements the csv and tells them to load.
+     */
     @Override
     public void run() {
       loadCourses();
@@ -112,6 +127,10 @@ public abstract class GolfDB extends RoomDatabase {
       loadUsers();
     }
 
+    /**
+     * This parses the data in <code>courses.csv</code> and retrieves it to send through
+     * the associated entity class and dao interface.
+     */
     private void loadCourses() {
       try (
           InputStream input = GolfApplication.getInstance().getResources()
@@ -137,6 +156,10 @@ public abstract class GolfDB extends RoomDatabase {
       }
     }
 
+    /**
+     * This parses the data in <code>locations.csv</code> and retrieves it to send through
+     * the associated entity class and dao interface.
+     */
     private void loadLocations() {
       try (
           InputStream input = GolfApplication.getInstance().getResources()
@@ -163,6 +186,10 @@ public abstract class GolfDB extends RoomDatabase {
       }
     }
 
+    /**
+     * This parses the data in <code>courselocations.csv</code> and retrieves it to send through
+     * the associated entity class and dao interface.
+     */
     private void loadCourseLocations() {
       try (
           InputStream input = GolfApplication.getInstance().getResources()
@@ -183,6 +210,10 @@ public abstract class GolfDB extends RoomDatabase {
       }
     }
 
+    /**
+     * This parses the data in <code>user.csv</code> and retrieves it to send through
+     *  the associated entity class and dao interface.
+     */
     private void loadUsers() {
       try (
           InputStream input = GolfApplication.getInstance().getResources()

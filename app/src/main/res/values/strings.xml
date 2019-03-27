@@ -34,5 +34,6 @@
   <string name="location_search_result">Location Search Result</string>
   <string name="course_page">Course Page</string>
   <string name="search_results">Search Results</string>
+  <string name="search_by_hint">Search By City Or Course</string>
 
 </resources>
