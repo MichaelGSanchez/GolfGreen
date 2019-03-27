@@ -69,7 +69,7 @@ that you may be traveling to.
 **Basic User Instructions**
 
 
-**Aestic and Cosmetic Improvments**
+**Aesthetic and Cosmetic Improvements**
 
 
 **Stretch Goals**

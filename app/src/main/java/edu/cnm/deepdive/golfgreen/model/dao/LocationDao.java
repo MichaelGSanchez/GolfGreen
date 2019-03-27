@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import edu.cnm.deepdive.golfgreen.model.Course;
 import edu.cnm.deepdive.golfgreen.model.Location;
 import java.util.List;
 
@@ -20,10 +21,12 @@ public interface LocationDao {
   @Insert
   List<Long> insert(List<Location> locations);
 
+
   @Query("SELECT * FROM Location WHERE location_id = :locationId")
   Location findFirstByLocations(long locationId);
 
-  @Query("SELECT * FROM Location")
-    //TODO By location
+
+  @Query("SELECT * FROM Location WHERE city = city")
+
   List<Location> findAll();
 }

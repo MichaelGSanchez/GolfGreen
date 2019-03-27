@@ -74,30 +74,6 @@ public class MainActivity extends AppCompatActivity
 
   }
 
-/*
-  @Override
-  public void NavigationView(View view, int position) {
-    Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position,
-        Toast.LENGTH_SHORT).show();
-  }
-   try(
-  InputStream input = getResources().openRawResource(R.raw.location);
-  Reader reader = new InputStreamReader(input);
-  CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT);
-    )
-
-  {
-    for (CSVRecord record : parser) {
-      String col0 = record.get(0);
-      String col1 = record.get(1);
-    }
-  } catch(
-  IOException e)
-
-  {
-    Log.e("Welp, it don't work... ", getClass().getSimpleName());
-  }
-*/
 
 
   /**

@@ -24,6 +24,9 @@ import java.util.Date;
 
 public class Location {
 
+  public Location(){
+
+  }
   @ColumnInfo(name = "location_id")
   @PrimaryKey(autoGenerate = true)
   private long id;

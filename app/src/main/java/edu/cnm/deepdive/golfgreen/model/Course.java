@@ -50,6 +50,10 @@ public class Course {
     this.phoneNumber = phoneNumber;
   }
 
+  public Course(){
+
+  }
+
   public String getCourseName() {
     return courseName;
   }

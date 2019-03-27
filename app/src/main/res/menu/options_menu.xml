@@ -7,7 +7,7 @@
     android:title="@string/search_title"
     android:icon="@drawable/ic_search"
     android:actionViewClass="android.widget.SearchView"
-    android:showAsAction="ifRoom"/>
+    android:showAsAction="always"/>
 
   <item
     android:id="@+id/sign_out"
