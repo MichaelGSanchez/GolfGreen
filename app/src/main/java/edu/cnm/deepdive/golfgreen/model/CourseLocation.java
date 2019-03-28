@@ -11,12 +11,12 @@ import android.arch.persistence.room.PrimaryKey;
  */
 @Entity(foreignKeys = @ForeignKey(entity = Location.class,
     parentColumns = "location_id", childColumns = "location_id",//This may need to be course_id
-    onDelete = ForeignKey.CASCADE)
+    onDelete = ForeignKey.CASCADE),
+    primaryKeys = {"course_id","location_id"}
 )
 public class CourseLocation {
 
   @ColumnInfo(name = "course_id")
-  @PrimaryKey(autoGenerate = true)
   private long id;
 
   @ColumnInfo(name = "location_id")
