@@ -19,7 +19,7 @@ import android.arch.persistence.room.PrimaryKey;
 public class Course {
 
   @ColumnInfo(name = "course_id")
-  @PrimaryKey(autoGenerate = true)
+  @PrimaryKey
   private long id;
 
   @ColumnInfo(name = "course_name")
