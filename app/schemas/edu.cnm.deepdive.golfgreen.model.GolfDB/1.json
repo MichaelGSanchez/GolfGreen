@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1afc590044447fb82600a0a09d00dfee",
+    "identityHash": "4e2b52c866f98e5874ed6369d1c4f16b",
     "entities": [
       {
         "tableName": "Course",
@@ -94,7 +94,7 @@
       },
       {
         "tableName": "Location",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `latitude` INTEGER NOT NULL, `longitude` INTEGER, `city` TEXT, `zip` INTEGER, `max_radius` INTEGER NOT NULL, `time_stamp` INTEGER, `user_id` INTEGER NOT NULL, FOREIGN KEY(`user_id`) REFERENCES `User`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `latitude` REAL, `longitude` REAL, `city` TEXT, `zip` INTEGER, `max_radius` INTEGER NOT NULL, `time_stamp` INTEGER, `user_id` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -105,13 +105,13 @@
           {
             "fieldPath": "latitude",
             "columnName": "latitude",
-            "affinity": "INTEGER",
-            "notNull": true
+            "affinity": "REAL",
+            "notNull": false
           },
           {
             "fieldPath": "longitude",
             "columnName": "longitude",
-            "affinity": "INTEGER",
+            "affinity": "REAL",
             "notNull": false
           },
           {
@@ -152,19 +152,7 @@
           "autoGenerate": true
         },
         "indices": [],
-        "foreignKeys": [
-          {
-            "table": "User",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "user_id"
-            ],
-            "referencedColumns": [
-              "user_id"
-            ]
-          }
-        ]
+        "foreignKeys": []
       },
       {
         "tableName": "User",
@@ -213,7 +201,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1afc590044447fb82600a0a09d00dfee\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4e2b52c866f98e5874ed6369d1c4f16b\")"
     ]
   }
 }

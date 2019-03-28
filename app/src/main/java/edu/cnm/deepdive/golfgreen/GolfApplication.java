@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.golfgreen;
 
 import android.app.Application;
+import com.facebook.stetho.Stetho;
 
 /**
  * Extends the built in <code>Application.java</code> class to allow the functionality of the app to
@@ -15,9 +16,8 @@ public class GolfApplication extends Application {
   public void onCreate() {
     super.onCreate();
     instance = this;
-    /* Stetho.initializeWithDefaults(this); // Comment out this line to disable Stetho.*/
+    Stetho.initializeWithDefaults(this);
   }
-
   /**
    * Returns this instance, for GolfApplication to application context across the app.
    *

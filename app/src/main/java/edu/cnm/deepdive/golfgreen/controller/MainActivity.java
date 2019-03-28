@@ -18,7 +18,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
 import edu.cnm.deepdive.golfgreen.R;
+import edu.cnm.deepdive.golfgreen.model.Course;
+import edu.cnm.deepdive.golfgreen.model.GolfDB.SearchTask;
 import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
+import java.util.List;
 
 
 /**
@@ -75,10 +78,16 @@ public class MainActivity extends AppCompatActivity
     handleIntent(intent);
   }
 
+  /**
+   * <code>handleIntent</code> handles the search request coming from the query.
+   *
+   * @param intent is the intent of the search of the query
+   */
   private void handleIntent(Intent intent) {
     if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
       String query = intent.getStringExtra(SearchManager.QUERY);
-      //TODO Use the query to search your data somehow
+      getSupportFragmentManager().beginTransaction()
+          .replace(R.id.fragment_container, SearchResult.newInstance(query)).commit();
     }
   }
 

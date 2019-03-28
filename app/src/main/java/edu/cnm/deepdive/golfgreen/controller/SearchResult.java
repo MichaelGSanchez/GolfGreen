@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.Course;
+import edu.cnm.deepdive.golfgreen.model.GolfDB.SearchTask;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,18 @@ import java.util.List;
  */
 public class SearchResult extends Fragment {
 
+  public static final String SEARCH_KEY = "search";
   private RecyclerViewFragment recyclerViewFragment;
   private RecyclerViewAdapter adapter;
+
+  public static SearchResult newInstance(String search) {
+
+    Bundle args = new Bundle();
+    args.putString(SEARCH_KEY, search);
+    SearchResult fragment = new SearchResult();
+    fragment.setArguments(args);
+    return fragment;
+  }
 
 
   @Override
@@ -29,19 +40,22 @@ public class SearchResult extends Fragment {
       Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_search_result, container, false);
 
-    ArrayList<Course> courses = new ArrayList<>();
-    Course course = new Course(0, "Course: UNM North", 35, 7, "url: unm.edu", 5055555555l);
-    courses.add(course);
+    String query = getArguments().getString(SEARCH_KEY);
 
-    recyclerViewFragment = new RecyclerViewFragment();
-    Bundle args = new Bundle();
-    args.putSerializable(KEY_COURSES, courses);
-    recyclerViewFragment.setArguments(args);
-    getFragmentManager().beginTransaction().add(
-        R.id.search_result_fragment_container, recyclerViewFragment, "FragmentContainer")
-        .commit();
+    new SearchTask(){
+      @Override
+      protected void onPostExecute(ArrayList<Course> courses) {
+        recyclerViewFragment = new RecyclerViewFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(KEY_COURSES, courses);
+        recyclerViewFragment.setArguments(args);
+        getFragmentManager().beginTransaction().add(
+            R.id.search_result_fragment_container, recyclerViewFragment, "FragmentContainer")
+            .commit();
 
-    updateUI();
+        updateUI();
+      }
+    }.execute(query);
 
     return view;
   }

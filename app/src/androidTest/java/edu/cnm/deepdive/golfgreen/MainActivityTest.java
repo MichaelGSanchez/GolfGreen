@@ -5,12 +5,10 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
-import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
 import edu.cnm.deepdive.golfgreen.controller.MainActivity;
 import org.junit.Rule;
 import org.junit.Test;
@@ -41,6 +39,25 @@ public class MainActivityTest {
     onView(withId(R.id.recyclerView)).check(matches(withText(expectedNoStatisticsText)));
   }
 */
+
+/*
+  @Test
+  public void navigateToCourseFavorite2() {
+
+    // click on navigation item to survey
+
+    onView(withId(R.id.drawer_layout))
+        .perform(DrawerAction.open());
+    onView(withId(R.id.nav_view))
+        .perform(NavigationViewActions.navigateTo(R.id.fragment_course_favorite));
+    onView(withId(R.id.course_favorite_fragment_container))
+        .check(matches(isDisplayed()));
+
+//    onView(withId(R.id.survey_id))
+
+//        .check(matches(isDisplayed()));
+
+  }*/
 
   @Test
   public void navigateToCourseFavorite() {

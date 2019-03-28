@@ -17,12 +17,14 @@
     <item
       android:id="@+id/fragment_search_result"
       android:icon="@drawable/ic_search"
-      android:title="@string/location_search_result"/>
+      android:title="@string/location_search_result"
+      android:visible="false"/>
 
     <item
       android:id="@+id/fragment_individual_course"
       android:icon="@drawable/ic_golf_course_black_24dp"
-      android:title="@string/course_page"/>
+      android:title="@string/course_page"
+      android:visible="false"/>
 
     <item
       android:id="@+id/fragment_profile_settings"

@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS `${CourseLocation}` (
 );
 CREATE TABLE IF NOT EXISTS `${Location}` (
 `location_id`           INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
- `latitude`             INTEGER NOT NULL, 
- `longitude`            INTEGER, 
+ `latitude`             DOUBLE, 
+ `longitude`            DOUBLE, 
  `city`                 TEXT,
  `zip`                  INTEGER,
  `max_radius`           INTEGER NOT NULL,

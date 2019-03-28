@@ -38,5 +38,4 @@ public class CourseLocation {
     this.locationId = locationId;
   }
 
-
 }

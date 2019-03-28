@@ -2,7 +2,6 @@ package edu.cnm.deepdive.golfgreen.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import java.util.Date;
@@ -13,9 +12,7 @@ import java.util.Date;
  * <code>CourseLocation.java</code>
  */
 
-@Entity(foreignKeys = @ForeignKey(entity = User.class,
-    parentColumns = "user_id", childColumns = "user_id",
-    onDelete = ForeignKey.CASCADE)
+@Entity(
 )
 
 /**
@@ -24,20 +21,19 @@ import java.util.Date;
 
 public class Location {
 
-  public Location(){
+  public Location() {
 
   }
+
   @ColumnInfo(name = "location_id")
   @PrimaryKey(autoGenerate = true)
   private long id;
 
-  @NonNull
-
   @ColumnInfo(name = "latitude")
-  private Long latitude;
+  private Double latitude;
 
   @ColumnInfo(name = "longitude")
-  private Long longitude;
+  private Double longitude;
 
   @ColumnInfo(name = "city")
   private String city;
@@ -62,19 +58,19 @@ public class Location {
     this.id = id;
   }
 
-  public Long getLatitude() {
+  public Double getLatitude() {
     return latitude;
   }
 
-  public void setLatitude(Long latitude) {
+  public void setLatitude(Double latitude) {
     this.latitude = latitude;
   }
 
-  public Long getLongitude() {
+  public Double getLongitude() {
     return longitude;
   }
 
-  public void setLongitude(Long longitude) {
+  public void setLongitude(Double longitude) {
     this.longitude = longitude;
   }
 

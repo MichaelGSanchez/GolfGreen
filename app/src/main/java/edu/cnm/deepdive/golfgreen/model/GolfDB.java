@@ -6,6 +6,8 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import edu.cnm.deepdive.golfgreen.GolfApplication;
@@ -19,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -71,14 +74,14 @@ public abstract class GolfDB extends RoomDatabase {
 
     private static final GolfDB INSTANCE = Room.databaseBuilder(
         GolfApplication.getInstance().getApplicationContext(), GolfDB.class, DB_NAME)
-        .build();
+        .addCallback(new Callback()).build();
 
 
   }
 
   /**
-   * This method converts a <code>Date</code> into a <code>Long</code>
-   * by completing the inverse operation of each other.
+   * This method converts a <code>Date</code> into a <code>Long</code> by completing the inverse
+   * operation of each other.
    */
   public static class Converters {
 
@@ -98,10 +101,9 @@ public abstract class GolfDB extends RoomDatabase {
   }
 
   /**
-   * This class helps extend Room so the <code>PreLoadTask</code> can take
-   * place below.
+   * This class helps extend Room so the <code>PreLoadTask</code> can take place below.
    */
-  private class Callback extends RoomDatabase.Callback {
+  private static class Callback extends RoomDatabase.Callback {
 
     @Override
     public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -110,11 +112,13 @@ public abstract class GolfDB extends RoomDatabase {
     }
   }
 
+
+
   /**
-   * The <code>PreLoadTask</code> implements the the <code>.raw</code> files
-   * to be loaded in from each individual entity classes and dao interfaces.
+   * The <code>PreLoadTask</code> implements the the <code>.raw</code> files to be loaded in from
+   * each individual entity classes and dao interfaces.
    */
-  private class PreLoadTask extends Thread {
+  private static class PreLoadTask extends Thread {
 
     /**
      * This constructor implements the csv and tells them to load.
@@ -128,8 +132,8 @@ public abstract class GolfDB extends RoomDatabase {
     }
 
     /**
-     * This parses the data in <code>courses.csv</code> and retrieves it to send through
-     * the associated entity class and dao interface.
+     * This parses the data in <code>courses.csv</code> and retrieves it to send through the
+     * associated entity class and dao interface.
      */
     private void loadCourses() {
       try (
@@ -157,8 +161,8 @@ public abstract class GolfDB extends RoomDatabase {
     }
 
     /**
-     * This parses the data in <code>locations.csv</code> and retrieves it to send through
-     * the associated entity class and dao interface.
+     * This parses the data in <code>locations.csv</code> and retrieves it to send through the
+     * associated entity class and dao interface.
      */
     private void loadLocations() {
       try (
@@ -171,8 +175,8 @@ public abstract class GolfDB extends RoomDatabase {
         for (CSVRecord record : parser) {
           Location location = new Location();
           location.setId(Long.parseLong(record.get(0)));
-          location.setLatitude(Long.parseLong(record.get(1)));
-          location.setLatitude(Long.parseLong(record.get(2)));
+          location.setLatitude(Double.parseDouble(record.get(1)));
+          location.setLongitude(Double.parseDouble(record.get(2)));
           location.setCity(record.get(3));
           location.setZip(Long.parseLong(record.get(4)));
           location.setMaxRadius(Integer.parseInt(record.get(5)));
@@ -187,8 +191,8 @@ public abstract class GolfDB extends RoomDatabase {
     }
 
     /**
-     * This parses the data in <code>courselocations.csv</code> and retrieves it to send through
-     * the associated entity class and dao interface.
+     * This parses the data in <code>courselocations.csv</code> and retrieves it to send through the
+     * associated entity class and dao interface.
      */
     private void loadCourseLocations() {
       try (
@@ -211,8 +215,8 @@ public abstract class GolfDB extends RoomDatabase {
     }
 
     /**
-     * This parses the data in <code>user.csv</code> and retrieves it to send through
-     *  the associated entity class and dao interface.
+     * This parses the data in <code>user.csv</code> and retrieves it to send through the associated
+     * entity class and dao interface.
      */
     private void loadUsers() {
       try (
@@ -235,5 +239,15 @@ public abstract class GolfDB extends RoomDatabase {
       }
     }
   }
+
+  public static class SearchTask extends AsyncTask<String, Void, ArrayList<Course>> {
+
+    @Override
+    protected ArrayList<Course> doInBackground(String... strings) {
+      return new ArrayList<>(GolfDB.getInstance()
+          .getLocationDao().findAllByCityOrZip(strings[0]));
+    }
+  }
+
 
 }
