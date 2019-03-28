@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "4e2b52c866f98e5874ed6369d1c4f16b",
+    "identityHash": "79265e85f2130d5892c2cc45ec47ae66",
     "entities": [
       {
         "tableName": "Course",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`course_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `course_name` TEXT, `price` INTEGER NOT NULL, `difficulty` INTEGER NOT NULL, `url` TEXT, `phone_number` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`course_id` INTEGER NOT NULL, `course_name` TEXT, `price` INTEGER NOT NULL, `difficulty` INTEGER NOT NULL, `url` TEXT, `phone_number` INTEGER NOT NULL, PRIMARY KEY(`course_id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -49,14 +49,14 @@
           "columnNames": [
             "course_id"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
       },
       {
         "tableName": "CourseLocation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`course_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `location_id` INTEGER NOT NULL, FOREIGN KEY(`location_id`) REFERENCES `Location`(`location_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`course_id` INTEGER NOT NULL, `location_id` INTEGER NOT NULL, PRIMARY KEY(`course_id`, `location_id`), FOREIGN KEY(`location_id`) REFERENCES `Location`(`location_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -73,9 +73,10 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "course_id"
+            "course_id",
+            "location_id"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": [
@@ -94,7 +95,7 @@
       },
       {
         "tableName": "Location",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `latitude` REAL, `longitude` REAL, `city` TEXT, `zip` INTEGER, `max_radius` INTEGER NOT NULL, `time_stamp` INTEGER, `user_id` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER NOT NULL, `latitude` REAL, `longitude` REAL, `city` TEXT, `zip` INTEGER, `max_radius` INTEGER NOT NULL, `time_stamp` INTEGER, `user_id` INTEGER NOT NULL, PRIMARY KEY(`location_id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -149,7 +150,7 @@
           "columnNames": [
             "location_id"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -201,7 +202,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4e2b52c866f98e5874ed6369d1c4f16b\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"79265e85f2130d5892c2cc45ec47ae66\")"
     ]
   }
 }
