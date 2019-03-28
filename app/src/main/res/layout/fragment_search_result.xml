@@ -4,41 +4,37 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  tools:context=".controller.SearchResult"
-  android:background="@drawable/ic_gg_search_result_bg">
-
-  <!--<ImageView
-      android:src="@drawable/ic_gg_search_result_bg"
-      android:adjustViewBounds="true"
-      android:scaleType="centerCrop"
-      android:layout_width="match_parent"
-      android:layout_height="fill_parent"
-      tools:ignore="ContentDescription"/>-->
-  <TextView
-      android:id="@+id/search_results"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/search_results"
-      android:textColor="#FFFFFF"
-      android:textAlignment="center"
-      android:textSize="24sp"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toTopOf="@id/search_result_fragment_container"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"/>
+  tools:context=".controller.SearchResult">
 
 
   <FrameLayout
     android:id="@+id/search_result_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_constraintTop_toBottomOf="@+id/search_results"
+    app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"/>
 
+  <ImageView
+    android:src="@drawable/ic_gg_search_result_bg"
+    android:adjustViewBounds="true"
+    android:scaleType="centerCrop"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    tools:ignore="ContentDescription"/>
 
-
-
+  <TextView
+    android:id="@+id/search_results"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/search_results"
+    android:textColor="#FFFFFF"
+    android:textAlignment="center"
+    android:textSize="24sp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

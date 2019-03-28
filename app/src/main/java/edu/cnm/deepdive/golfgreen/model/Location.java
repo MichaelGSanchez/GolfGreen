@@ -26,7 +26,7 @@ public class Location {
   }
 
   @ColumnInfo(name = "location_id")
-  @PrimaryKey
+  @PrimaryKey(autoGenerate = true)
   private long id;
 
   @ColumnInfo(name = "latitude")

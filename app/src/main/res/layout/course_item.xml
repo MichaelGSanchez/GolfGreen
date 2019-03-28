@@ -7,6 +7,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   tools:context="controller.CourseFavorite"
+  android:background="@drawable/ic_golf_favorite_courses_bg"
   android:adjustViewBounds="true"
   android:scaleType="centerCrop">
 
