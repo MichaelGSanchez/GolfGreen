@@ -35,5 +35,6 @@
   <string name="search_results">Search Results</string>
   <string name="search_by_hint">Search By City</string>
   <string name="supported_locations"><![CDATA[Supported Locations: Albuquerque, Santa  Fe, Las Cruces]]></string>
+  <string name="search_guide">Search Guide: Course, Price, Rating, Phone</string>
 
 </resources>

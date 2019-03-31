@@ -19,11 +19,20 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 import edu.cnm.deepdive.golfgreen.R;
-import edu.cnm.deepdive.golfgreen.model.CourseLocation;
 import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
 
-
 /**
+ * Copyright 2019 Michael Sanchez
+ * Licensed under the Apache License, Version 2.0;
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at <a href= "http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ *  AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+
  * This <code>MainActivity</code> is the launching point of the entire app. The app runs through
  * <code>MainActivity</code> and implements the navigational features of its {@link NavigationView}
  * in the <code>MainActivity</code>
@@ -109,12 +118,7 @@ public class MainActivity extends AppCompatActivity
   }
 
 
-/*  @Override
-  public boolean onPrepareOptionsMenu(Menu menu){
-    super.onPrepareOptionsMenu(menu);
-    menu.removeItem(R.id.search);
-    return false;
-  }*/
+
   /**
    * <code>onCreateOptionsMenu</code> inflates <code>R.menu.options_menu</code>
    * which houses the signout function and search bar. Which is the crux of the entire application.

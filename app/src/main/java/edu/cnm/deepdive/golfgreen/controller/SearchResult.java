@@ -21,7 +21,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass. Inflates and activates the .XML file
  * <code>fragment_search_result</code>
  */
-public class SearchResult extends Fragment  {
+public class SearchResult extends Fragment {
 
   public static final String SEARCH_KEY = "search";
   private RecyclerViewFragment recyclerViewFragment;
@@ -36,12 +36,21 @@ public class SearchResult extends Fragment  {
     return fragment;
   }
 
+  /**
+   * This code is to make the search bar only available during the home screen and user profile
+   * screen.
+   */
   @Override
   public void onPrepareOptionsMenu(Menu menu) {
-    MenuItem item=menu.findItem(R.id.search);
+    MenuItem item = menu.findItem(R.id.search);
     item.setVisible(false);
   }
 
+  /**
+   * This creates the view that inflates xml that contains the search results.  It also implements
+   * <code>SearchTask</code> which grabs a list of courses to display in the
+   * <code>fragment_search_result</code>.
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
@@ -53,7 +62,7 @@ public class SearchResult extends Fragment  {
       query = getArguments().getString(SEARCH_KEY);
     }
 
-    new SearchTask(){
+    new SearchTask() {
       @Override
       protected void onPostExecute(ArrayList<Course> courses) {
         recyclerViewFragment = new RecyclerViewFragment();
