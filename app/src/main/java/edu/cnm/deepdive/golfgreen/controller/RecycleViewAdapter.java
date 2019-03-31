@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.Course;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -19,14 +20,15 @@ import java.util.List;
  * @version 1.0
  */
 
-public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.FavoriteViewHolder> {
+public class RecycleViewAdapter extends RecyclerView.Adapter<
+    RecycleViewAdapter.FavoriteViewHolder>{
 
   Context context;
   private RecyclerViewFragment recyclerViewFragment;
   private List<Course> favoriteList;
 
   /**
-   * This provides context for twhat the adapter will be exptected to return
+   * This provides context for what the adapter will be exptected to return
    *
    * @param favoriteList the items which the adapter will grab to display to the fragment.
    */
@@ -34,7 +36,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
       List<Course> favoriteList) {
     this.context = context;
     this.favoriteList = favoriteList;
-
   }
 
   /**
@@ -65,7 +66,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     holder.textViewPrice.setText(String.valueOf(course.getPrice()));
     holder.textViewDifficulty.setText(String.valueOf(course.getDifficulty()));
     holder.textViewPhoneNumber
-        .setText(String.valueOf(course.getPhoneNumber()));//Casted to int, that may not be needed
+        .setText(String.valueOf(course.getPhoneNumber()));
 
   }
 
@@ -77,6 +78,12 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
   public int getItemCount() {
 
     return favoriteList.size();
+  }
+
+  @Override
+  public int getItemViewType(int position)
+  {
+    return position;
   }
 
   /**

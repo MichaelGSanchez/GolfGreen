@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import edu.cnm.deepdive.golfgreen.R;
 import edu.cnm.deepdive.golfgreen.model.Course;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,6 +103,7 @@ public class RecyclerViewFragment extends Fragment {
     if (recyclerView.getLayoutManager() != null) {
       scrollPosition = ((LinearLayoutManager) recyclerView.getLayoutManager())
           .findFirstCompletelyVisibleItemPosition();
+
     }
 
     switch (layoutManagerType) {

@@ -17,11 +17,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
+import android.widget.Toast;
 import edu.cnm.deepdive.golfgreen.R;
-import edu.cnm.deepdive.golfgreen.model.Course;
-import edu.cnm.deepdive.golfgreen.model.GolfDB.SearchTask;
+import edu.cnm.deepdive.golfgreen.model.CourseLocation;
 import edu.cnm.deepdive.golfgreen.service.GoogleSignInService;
-import java.util.List;
 
 
 /**
@@ -35,6 +34,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
+
 
   /**
    * <code>OnCreate</code> launches the app within the <code> MainActivity </code> method. In
@@ -84,13 +84,13 @@ public class MainActivity extends AppCompatActivity
    * @param intent is the intent of the search of the query
    */
   private void handleIntent(Intent intent) {
+    Context context = this;
     if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
       String query = intent.getStringExtra(SearchManager.QUERY);
       getSupportFragmentManager().beginTransaction()
           .replace(R.id.fragment_container, SearchResult.newInstance(query)).commit();
     }
   }
-
 
   /**
    * <code>onBackPressed</code> ensures that when back is pressed it exits the
@@ -108,6 +108,13 @@ public class MainActivity extends AppCompatActivity
     }
   }
 
+
+/*  @Override
+  public boolean onPrepareOptionsMenu(Menu menu){
+    super.onPrepareOptionsMenu(menu);
+    menu.removeItem(R.id.search);
+    return false;
+  }*/
   /**
    * <code>onCreateOptionsMenu</code> inflates <code>R.menu.options_menu</code>
    * which houses the signout function and search bar. Which is the crux of the entire application.
@@ -116,8 +123,10 @@ public class MainActivity extends AppCompatActivity
    * <code>onCreateOptionsMenu</code>
    */
 
+
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
+
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.options_menu, menu);
 
@@ -125,10 +134,12 @@ public class MainActivity extends AppCompatActivity
         (SearchManager) getSystemService(Context.SEARCH_SERVICE);
     SearchView searchView =
         (SearchView) menu.findItem(R.id.search).getActionView();
+    assert searchManager != null;
     searchView.setSearchableInfo(
         searchManager.getSearchableInfo(getComponentName()));
 
     return true;
+
   }
 
   /**
@@ -155,7 +166,6 @@ public class MainActivity extends AppCompatActivity
     return handeled;
   }
 
-
   /**
    * <code>onNavigationItemSelected</code> is a switch statement that launches fragments
    * once they are selected.
@@ -166,17 +176,19 @@ public class MainActivity extends AppCompatActivity
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
     Bundle args = new Bundle();
+    Context context = getApplicationContext();
+
     switch (item.getItemId()) {
       case R.id.fragment_home:
         loadFragment(new Home(), R.id.fragment_container, "fragment_home", null);
         break;
       case R.id.fragment_course_favorite:
-        loadFragment(new CourseFavorite(), R.id.fragment_container, "course_favorite_item",
-            null);
+        Toast.makeText(context, "Feature not yet available", Toast.LENGTH_SHORT).show();
         break;
       case R.id.fragment_search_result:
         loadFragment(new SearchResult(), R.id.fragment_container, "fragment_search_result",
             null);
+        Toast.makeText(context, "Loading Search Results", Toast.LENGTH_SHORT).show();
         break;
       case R.id.fragment_individual_course:
         loadFragment(new IndividualCourse(), R.id.fragment_container, "fragment_individual_course",

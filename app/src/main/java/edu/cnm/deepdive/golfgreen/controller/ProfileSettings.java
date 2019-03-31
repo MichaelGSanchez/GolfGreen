@@ -9,7 +9,7 @@ import edu.cnm.deepdive.golfgreen.R;
 
 /**
  * This is the java class that is used to create and start the <code>ProfileSettings</code>
- * fragment.
+ * fragment. Although this fragment can be accessed there is not much that it actually does at this time.
  */
 
 public class ProfileSettings extends Fragment {

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -19,7 +21,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass. Inflates and activates the .XML file
  * <code>fragment_search_result</code>
  */
-public class SearchResult extends Fragment {
+public class SearchResult extends Fragment  {
 
   public static final String SEARCH_KEY = "search";
   private RecyclerViewFragment recyclerViewFragment;
@@ -34,13 +36,22 @@ public class SearchResult extends Fragment {
     return fragment;
   }
 
+  @Override
+  public void onPrepareOptionsMenu(Menu menu) {
+    MenuItem item=menu.findItem(R.id.search);
+    item.setVisible(false);
+  }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
+    setHasOptionsMenu(true);
     View view = inflater.inflate(R.layout.fragment_search_result, container, false);
 
-    String query = getArguments().getString(SEARCH_KEY);
+    String query = null;
+    if (getArguments() != null) {
+      query = getArguments().getString(SEARCH_KEY);
+    }
 
     new SearchTask(){
       @Override
@@ -92,7 +103,7 @@ public class SearchResult extends Fragment {
      * @param parent refers to the ViewGroup and how the information will be displayed being set
      * based off of its parent
      */
-    public RecyclerViewHolder(LayoutInflater inflater, ViewGroup parent) {
+    RecyclerViewHolder(LayoutInflater inflater, ViewGroup parent) {
       super(inflater.inflate(R.layout.course_item, parent, false));
       itemView.setOnClickListener(this);
 
@@ -109,7 +120,7 @@ public class SearchResult extends Fragment {
      */
     @Override
     public void onClick(View view) {
-      //TODO implement onClick to open selected course page from the favorite fragment.
+      //TODO implement onClick to open selected course page from the search result fragment.
     }
 
     /**

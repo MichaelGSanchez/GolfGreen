@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import edu.cnm.deepdive.golfgreen.R;
+import java.io.Serializable;
 
 
 public class Home extends Fragment {
@@ -20,5 +21,6 @@ public class Home extends Fragment {
       Bundle savedInstanceState) {
     return inflater.inflate(R.layout.fragment_home, container, false);
   }
+
 
 }
