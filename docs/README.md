@@ -115,6 +115,7 @@ more to be fully implemented.
  permissions and limitations under the License.
 
 **Build Instructions**
+
 Step 1 - [Clone Git Repository](https://github.com/michaelgsanchez/golfgreen)
 
 Step 2 - When creating a new project clone the project from the cloned link
