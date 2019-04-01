@@ -179,14 +179,3 @@ search a location you can also go into the individual courses page and learn mor
 
 * Ability to call the course directly from the app. 
 
-
-**Could the app be useful on its own, with not connection to the Internet?**
-
-The app could be useful if the user off line, they are able to download the info for the selected area into a PDF
-while they have an Internet connection.  The app for the most part would be dependent on the users access to 
-Internet connection. 
-
-**What sort of data would this app use or share if it had a connection to the Internet?**
-
-The data shared would be the location and ability to load different menu's that contain the information they are looking for. 
-
