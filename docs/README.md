@@ -52,7 +52,7 @@ more to be fully implemented.
 * [DDL](ddl.md)
 * [Wireframe of App](GolfGreenWireFrame.png)
 * [ERD of GolfGreen](GolfGreenErd.pdf)
-* [SQL Table's](SQLTables.md)
+
 
 
 **User Stories**
