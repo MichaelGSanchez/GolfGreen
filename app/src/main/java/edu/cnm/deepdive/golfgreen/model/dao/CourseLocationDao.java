@@ -26,6 +26,5 @@ public interface CourseLocationDao {
   @Query("SELECT * FROM CourseLocation")
   List<CourseLocation> findSelect();
 
-  //TODO By location filter
 
 }
